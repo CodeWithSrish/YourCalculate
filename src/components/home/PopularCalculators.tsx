@@ -34,14 +34,20 @@ export function PopularCalculators() {
                   {isAvailable ? (
                     <Link
                       href={calc.slug}
-                      className="text-sm font-semibold text-[var(--primary)] hover:underline transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--ring)] rounded-xs"
+                      className="text-sm font-semibold text-[var(--primary)] hover:underline transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--ring)] rounded-xs flex items-center justify-between w-full"
                     >
-                      {calc.name} <span aria-hidden="true">→</span>
+                      <span>{calc.name}</span>
+                      <span aria-hidden="true">→</span>
                     </Link>
                   ) : (
-                    <span className="text-sm font-semibold text-[var(--text-primary)] cursor-default">
-                      {calc.name}
-                    </span>
+                    <div className="flex items-center justify-between w-full">
+                      <span className="text-sm font-semibold text-[var(--text-secondary)] cursor-default">
+                        {calc.name}
+                      </span>
+                      <span className="rounded-xs bg-[var(--background)] px-1.5 py-0.5 text-[10px] font-semibold text-[var(--text-muted)] border border-[var(--border)]">
+                        Coming Soon
+                      </span>
+                    </div>
                   )}
                 </div>
                 <p className="mt-1 text-xs text-[var(--text-secondary)] leading-relaxed">

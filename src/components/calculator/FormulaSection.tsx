@@ -24,9 +24,9 @@ export function FormulaSection({
       </div>
 
       <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {formulas.map((item) => (
+        {formulas.map((item, idx) => (
           <div
-            key={item.modeId}
+            key={`${item.modeId}-${item.title}-${idx}`}
             className="flex flex-col justify-between rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-xs"
           >
             <div>

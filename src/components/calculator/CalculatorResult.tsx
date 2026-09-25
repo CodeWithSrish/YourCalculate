@@ -36,6 +36,15 @@ export function CalculatorResult({ result }: CalculatorResultProps) {
                 <span className="tabular-nums">{result.stepExplanation}</span>
               </div>
             )}
+
+            {result.disclaimer && (
+              <div className="mt-3.5 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3.5 sm:p-4 text-[13px] sm:text-[14px] text-[var(--text-muted)] leading-relaxed">
+                <span className="font-semibold text-[var(--text-secondary)]">
+                  {result.disclaimerLabel || "Medical Disclaimer"}:{" "}
+                </span>
+                <span>{result.disclaimer}</span>
+              </div>
+            )}
           </div>
         ) : (
           <div className="mt-4 rounded-xl border border-amber-200 dark:border-amber-900/60 bg-amber-50 dark:bg-amber-950/40 p-4 text-sm text-amber-800 dark:text-amber-300 leading-relaxed">

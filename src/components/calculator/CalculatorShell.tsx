@@ -33,7 +33,15 @@ export function CalculatorShell({ slug }: CalculatorShellProps) {
     for (const mode of definition.modes) {
       initial[mode.id] = {};
       for (const input of mode.inputs) {
-        initial[mode.id][input.id] = input.defaultValue !== undefined ? input.defaultValue : "";
+        if (input.type === "date" && input.defaultValue === "today") {
+          const now = new Date();
+          const year = now.getFullYear();
+          const month = String(now.getMonth() + 1).padStart(2, "0");
+          const day = String(now.getDate()).padStart(2, "0");
+          initial[mode.id][input.id] = `${year}-${month}-${day}`;
+        } else {
+          initial[mode.id][input.id] = input.defaultValue !== undefined ? input.defaultValue : "";
+        }
       }
     }
     return initial;
@@ -57,7 +65,15 @@ export function CalculatorShell({ slug }: CalculatorShellProps) {
     setInputState((prev) => {
       const resetModeInputs: Record<string, number | string> = {};
       for (const input of activeMode.inputs) {
-        resetModeInputs[input.id] = input.defaultValue !== undefined ? input.defaultValue : "";
+        if (input.type === "date" && input.defaultValue === "today") {
+          const now = new Date();
+          const year = now.getFullYear();
+          const month = String(now.getMonth() + 1).padStart(2, "0");
+          const day = String(now.getDate()).padStart(2, "0");
+          resetModeInputs[input.id] = `${year}-${month}-${day}`;
+        } else {
+          resetModeInputs[input.id] = input.defaultValue !== undefined ? input.defaultValue : "";
+        }
       }
       return {
         ...prev,
@@ -69,18 +85,34 @@ export function CalculatorShell({ slug }: CalculatorShellProps) {
   // Compute result deterministically
   const calculationResult = () => {
     const currentInputs = inputState[activeMode.id] || {};
-    const parsedInputs: Record<string, number> = {};
+    const parsedInputs: Record<string, number | string> = {};
 
     for (const inputDef of activeMode.inputs) {
       const rawVal = currentInputs[inputDef.id];
-      const parsed = parseNumericInput(rawVal);
-      if (parsed === null) {
-        return {
-          isValid: false,
-          error: `Please enter a valid number for "${inputDef.label}".`,
-        };
+      if (inputDef.type === "date") {
+        if (!rawVal || typeof rawVal !== "string" || !rawVal.trim()) {
+          return {
+            isValid: false,
+            error: `Please enter your ${inputDef.label.toLowerCase()}.`,
+          };
+        }
+        parsedInputs[inputDef.id] = String(rawVal).trim();
+      } else if (inputDef.type === "select") {
+        const val =
+          rawVal !== undefined && rawVal !== ""
+            ? rawVal
+            : inputDef.defaultValue ?? (inputDef.options?.[0]?.value ?? "");
+        parsedInputs[inputDef.id] = val;
+      } else {
+        const parsed = parseNumericInput(rawVal);
+        if (parsed === null) {
+          return {
+            isValid: false,
+            error: `Please enter a valid number for "${inputDef.label}".`,
+          };
+        }
+        parsedInputs[inputDef.id] = parsed;
       }
-      parsedInputs[inputDef.id] = parsed;
     }
 
     return activeMode.calculate(parsedInputs);

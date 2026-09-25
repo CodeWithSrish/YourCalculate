@@ -7,13 +7,22 @@ export interface CalculatorSearchResult {
   matchedReason?: string;
 }
 
+function normalizeText(text: string): string {
+  return (text || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[-_/]/g, " ")
+    .replace(/\s+/g, " ");
+}
+
 export function searchCalculators(
   query: string,
   limit = 8
 ): CalculatorSearchResult[] {
-  const normalizedQuery = (query || "").trim().toLowerCase();
+  const rawQuery = (query || "").trim().toLowerCase();
+  const normalizedQuery = normalizeText(query);
 
-  if (!normalizedQuery) {
+  if (!rawQuery) {
     return [];
   }
 
@@ -21,53 +30,86 @@ export function searchCalculators(
   const results: CalculatorSearchResult[] = [];
 
   for (const calc of calculators) {
-    const nameLower = calc.name.toLowerCase();
-    const slugLower = calc.slug.toLowerCase();
+    const rawName = calc.name.toLowerCase();
+    const normalizedName = normalizeText(calc.name);
+    const rawSlug = calc.slug.toLowerCase().replace(/^\//, "");
+    const normalizedSlug = normalizeText(rawSlug);
     const catLower = calc.category.toLowerCase();
     const shortDescLower = calc.shortDescription.toLowerCase();
     const keywords = (calc.searchKeywords || []).map((k) => k.toLowerCase());
+    const normalizedKeywords = keywords.map((k) => normalizeText(k));
 
     let score = 0;
     let matchedReason: string | undefined;
 
-    // 1. Exact Name / Slug Match
-    if (nameLower === normalizedQuery || slugLower === normalizedQuery) {
+    // 1. Exact Calculator Name or Slug Match
+    if (
+      rawName === rawQuery ||
+      normalizedName === normalizedQuery ||
+      rawSlug === rawQuery ||
+      normalizedSlug === normalizedQuery
+    ) {
       score = 100;
       matchedReason = "Exact name match";
     }
-    // 2. Name Starts With Query
-    else if (nameLower.startsWith(normalizedQuery)) {
-      score = 80;
+    // 2. Calculator Name Starts With Query
+    else if (
+      rawName.startsWith(rawQuery) ||
+      normalizedName.startsWith(normalizedQuery)
+    ) {
+      score = 95;
       matchedReason = "Title match";
     }
     // 3. Exact Keyword Match
-    else if (keywords.includes(normalizedQuery)) {
-      score = 75;
-      matchedReason = `Keyword: ${normalizedQuery}`;
+    else if (
+      keywords.includes(rawQuery) ||
+      normalizedKeywords.includes(normalizedQuery)
+    ) {
+      score = 90;
+      matchedReason = `Keyword: ${rawQuery}`;
     }
-    // 4. Name Contains Query
-    else if (nameLower.includes(normalizedQuery)) {
+    // 4. Keyword Starts With Query
+    else if (
+      keywords.some((k) => k.startsWith(rawQuery)) ||
+      normalizedKeywords.some((k) => k.startsWith(normalizedQuery))
+    ) {
+      score = 70;
+      matchedReason = "Keyword prefix match";
+    }
+    // 5. Calculator Name Contains Query
+    else if (
+      rawName.includes(rawQuery) ||
+      normalizedName.includes(normalizedQuery)
+    ) {
       score = 60;
       matchedReason = "Title contains term";
     }
-    // 5. Keyword Starts With / Contains Query
+    // 6. Keyword Contains Query
     else {
-      const matchingKeyword = keywords.find((k) => k.includes(normalizedQuery));
+      const matchingKeyword = keywords.find(
+        (k, idx) => k.includes(rawQuery) || normalizedKeywords[idx].includes(normalizedQuery)
+      );
       if (matchingKeyword) {
         score = 50;
         matchedReason = `Keyword: ${matchingKeyword}`;
       }
-      // 6. Mode name / formula match
+      // 7. Mode name / description match
       else {
         const matchingMode = calc.modes.find((m) =>
-          m.name.toLowerCase().includes(normalizedQuery) || m.description.toLowerCase().includes(normalizedQuery)
+          m.name.toLowerCase().includes(rawQuery) ||
+          normalizeText(m.name).includes(normalizedQuery) ||
+          m.description.toLowerCase().includes(rawQuery)
         );
         if (matchingMode) {
           score = 35;
           matchedReason = `Mode: ${matchingMode.name}`;
         }
-        // 7. Short Description / Category Match
-        else if (shortDescLower.includes(normalizedQuery) || catLower.includes(normalizedQuery)) {
+        // 8. Short Description / Category Match
+        else if (
+          shortDescLower.includes(rawQuery) ||
+          normalizeText(shortDescLower).includes(normalizedQuery) ||
+          catLower.includes(rawQuery)
+        ) {
           score = 25;
           matchedReason = "Description match";
         }

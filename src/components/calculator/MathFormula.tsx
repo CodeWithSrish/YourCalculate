@@ -66,7 +66,7 @@ function renderMathTokens(input: string): React.ReactNode[] {
     }
 
     // 2. Match \text{...}
-    const textMatch = remaining.match(/^\\text\{([^}]+)\}/);
+    const textMatch = remaining.match(/^\\text\{((?:[^{}]|\{[^{}]*\})+)\}/);
     if (textMatch) {
       nodes.push(
         <span key={`text-${keyIndex++}`} className="font-normal mx-0.5">
@@ -78,7 +78,7 @@ function renderMathTokens(input: string): React.ReactNode[] {
     }
 
     // 3. Match exponents: ^{...} or ^x
-    const expMatch = remaining.match(/^\^(\{([^}]+)\}|([a-zA-Z0-9ⁿ]))/);
+    const expMatch = remaining.match(/^\^(\{((?:[^{}]|\{[^{}]*\})+)\}|([a-zA-Z0-9ⁿ]))/);
     if (expMatch) {
       const expContent = expMatch[2] || expMatch[3];
       nodes.push(
@@ -91,7 +91,7 @@ function renderMathTokens(input: string): React.ReactNode[] {
     }
 
     // 4. Match subscripts: _{...} or _x
-    const subMatch = remaining.match(/^_(\{([^}]+)\}|([a-zA-Z0-9]))/);
+    const subMatch = remaining.match(/^_(\{((?:[^{}]|\{[^{}]*\})+)\}|([a-zA-Z0-9]))/);
     if (subMatch) {
       const subContent = subMatch[2] || subMatch[3];
       nodes.push(
@@ -103,12 +103,107 @@ function renderMathTokens(input: string): React.ReactNode[] {
       continue;
     }
 
-    // 5. Match LaTeX symbols (\times, \div, \cdot, \left[, \right], \quad, etc.)
+    // 5. Match LaTeX symbols & Greek letters
+    if (remaining.startsWith("\\Delta") || remaining.startsWith("Δ")) {
+      const len = remaining.startsWith("\\Delta") ? 6 : 1;
+      nodes.push(
+        <span key={`sym-${keyIndex++}`} className="font-normal mx-0.5">
+          Δ
+        </span>
+      );
+      remaining = remaining.slice(len);
+      continue;
+    }
+
+    if (remaining.startsWith("\\longrightarrow") || remaining.startsWith("\\rightarrow") || remaining.startsWith("\\to") || remaining.startsWith("→")) {
+      let len = 1;
+      if (remaining.startsWith("\\longrightarrow")) len = 15;
+      else if (remaining.startsWith("\\rightarrow")) len = 11;
+      else if (remaining.startsWith("\\to")) len = 3;
+      nodes.push(
+        <span key={`sym-${keyIndex++}`} className="mx-2 font-normal text-[var(--text-muted)]">
+          →
+        </span>
+      );
+      remaining = remaining.slice(len);
+      continue;
+    }
+
+    if (remaining.startsWith("\\lfloor") || remaining.startsWith("⌊")) {
+      const len = remaining.startsWith("\\lfloor") ? 7 : 1;
+      nodes.push(
+        <span key={`sym-${keyIndex++}`} className="text-[1.2em] font-light text-[var(--text-muted)] mx-0.5">
+          ⌊
+        </span>
+      );
+      remaining = remaining.slice(len);
+      continue;
+    }
+
+    if (remaining.startsWith("\\rfloor") || remaining.startsWith("⌋")) {
+      const len = remaining.startsWith("\\rfloor") ? 7 : 1;
+      nodes.push(
+        <span key={`sym-${keyIndex++}`} className="text-[1.2em] font-light text-[var(--text-muted)] mx-0.5">
+          ⌋
+        </span>
+      );
+      remaining = remaining.slice(len);
+      continue;
+    }
+
+    if (remaining.startsWith("\\approx") || remaining.startsWith("≈")) {
+      const len = remaining.startsWith("\\approx") ? 7 : 1;
+      nodes.push(
+        <span key={`sym-${keyIndex++}`} className="mx-1.5 font-normal">
+          ≈
+        </span>
+      );
+      remaining = remaining.slice(len);
+      continue;
+    }
+
+    if (remaining.startsWith("\\leq") || remaining.startsWith("\\le") || remaining.startsWith("≤")) {
+      let len = 1;
+      if (remaining.startsWith("\\leq")) len = 4;
+      else if (remaining.startsWith("\\le")) len = 3;
+      nodes.push(
+        <span key={`sym-${keyIndex++}`} className="mx-1.5 font-normal">
+          ≤
+        </span>
+      );
+      remaining = remaining.slice(len);
+      continue;
+    }
+
+    if (remaining.startsWith("\\geq") || remaining.startsWith("\\ge") || remaining.startsWith("≥")) {
+      let len = 1;
+      if (remaining.startsWith("\\geq")) len = 4;
+      else if (remaining.startsWith("\\ge")) len = 3;
+      nodes.push(
+        <span key={`sym-${keyIndex++}`} className="mx-1.5 font-normal">
+          ≥
+        </span>
+      );
+      remaining = remaining.slice(len);
+      continue;
+    }
+
     if (remaining.startsWith("\\times") || remaining.startsWith("×")) {
       const len = remaining.startsWith("\\times") ? 6 : 1;
       nodes.push(
         <span key={`sym-${keyIndex++}`} className="mx-1.5 font-normal text-[var(--text-muted)]">
           ×
+        </span>
+      );
+      remaining = remaining.slice(len);
+      continue;
+    }
+
+    if (remaining.startsWith("\\cdot") || remaining.startsWith("·")) {
+      const len = remaining.startsWith("\\cdot") ? 5 : 1;
+      nodes.push(
+        <span key={`sym-${keyIndex++}`} className="mx-1 font-normal text-[var(--text-muted)]">
+          ·
         </span>
       );
       remaining = remaining.slice(len);
@@ -129,6 +224,12 @@ function renderMathTokens(input: string): React.ReactNode[] {
     if (remaining.startsWith("\\quad")) {
       nodes.push(<span key={`sym-${keyIndex++}`} className="mx-3" />);
       remaining = remaining.slice(5);
+      continue;
+    }
+
+    if (remaining.startsWith("\\,") || remaining.startsWith("\\;") || remaining.startsWith("\\:")) {
+      nodes.push(<span key={`sym-${keyIndex++}`} className="mx-1" />);
+      remaining = remaining.slice(2);
       continue;
     }
 

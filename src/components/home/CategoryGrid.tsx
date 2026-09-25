@@ -1,4 +1,6 @@
-import { CATEGORIES } from "@/data/homepage";
+import Link from "next/link";
+import { CATEGORIES, CategoryTopic } from "@/data/homepage";
+import { isCalculatorAvailable } from "@/calculators/registry";
 
 export function CategoryGrid() {
   return (
@@ -42,14 +44,37 @@ export function CategoryGrid() {
                 </div>
 
                 <ul className="mt-2.5 space-y-1.5 text-xs text-[var(--text-secondary)]">
-                  {cat.topics.map((topic) => (
-                    <li
-                      key={topic}
-                      className="text-[var(--text-secondary)] cursor-default"
-                    >
-                      {topic}
-                    </li>
-                  ))}
+                  {cat.topics.map((topic: CategoryTopic, idx: number) => {
+                    const isObj = typeof topic === "object" && topic !== null;
+                    const name = isObj ? topic.name : topic;
+                    const slug = isObj ? topic.slug : undefined;
+                    const isAvailable = slug
+                      ? isCalculatorAvailable(slug.replace(/^\//, ""))
+                      : false;
+
+                    if (isAvailable && slug) {
+                      return (
+                        <li key={slug || idx}>
+                          <Link
+                            href={slug}
+                            className="font-medium text-[var(--primary)] hover:underline flex items-center justify-between transition-colors focus:outline-none focus:ring-1 focus:ring-[var(--ring)] rounded-2xs"
+                          >
+                            <span>{name}</span>
+                            <span className="text-[10px]" aria-hidden="true">→</span>
+                          </Link>
+                        </li>
+                      );
+                    }
+
+                    return (
+                      <li
+                        key={name || idx}
+                        className="text-[var(--text-secondary)] cursor-default"
+                      >
+                        {name}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             );

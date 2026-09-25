@@ -22,6 +22,8 @@ export const gpaCalculatorDefinition: CalculatorDefinition = {
     "college gpa",
     "semester gpa",
     "cumulative gpa",
+    "cum gpa",
+    "cum-gpa",
     "weighted gpa",
     "honors gpa",
     "ap gpa",

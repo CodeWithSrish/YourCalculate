@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint src",
     "type-check": "tsc --noEmit",
-    "test": "npx tsx src/calculators/definitions/percentage.test.ts && npx tsx src/calculators/definitions/emi.test.ts && npx tsx src/calculators/definitions/sip.test.ts && npx tsx src/calculators/definitions/percentageToCgpa.test.ts && npx tsx src/calculators/definitions/cgpa.test.ts && npx tsx src/calculators/education/gpaEngine.test.ts && npx tsx src/calculators/engine/search.test.ts"
+    "test": "npx tsx src/calculators/definitions/percentage.test.ts && npx tsx src/calculators/definitions/emi.test.ts && npx tsx src/calculators/definitions/sip.test.ts && npx tsx src/calculators/definitions/percentageToCgpa.test.ts && npx tsx src/calculators/definitions/cgpa.test.ts && npx tsx src/calculators/education/gpaEngine.test.ts && npx tsx src/calculators/engine/search.test.ts && npx tsx src/calculators/engine/dateEngine.test.ts && npx tsx src/calculators/definitions/bmi.test.ts && npx tsx src/calculators/definitions/discount.test.ts && npx tsx src/calculators/definitions/gst.test.ts && npx tsx src/calculators/definitions/compoundInterest.test.ts && npx tsx src/calculators/definitions/loan.test.ts && npx tsx src/calculators/definitions/simpleInterest.test.ts && npx tsx src/calculators/definitions/average.test.ts && npx tsx src/calculators/definitions/ratio.test.ts && npx tsx src/calculators/definitions/fraction.test.ts && npx tsx src/calculators/definitions/lcm.test.ts"
   },
   "dependencies": {
     "next": "^15.2.1",

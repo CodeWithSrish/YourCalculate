@@ -1,18 +1,24 @@
 import { CalculatorFAQ } from "@/calculators/engine/types";
 
 interface FAQSectionProps {
+  title?: string;
+  description?: string;
   faqs: CalculatorFAQ[];
 }
 
-export function FAQSection({ faqs }: FAQSectionProps) {
+export function FAQSection({
+  title = "Frequently Asked Questions",
+  description = "Common questions regarding formulas, methodologies, and calculation conventions.",
+  faqs,
+}: FAQSectionProps) {
   return (
     <section className="border-t border-[var(--border)] pt-8 sm:pt-10">
       <div>
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--text-primary)]">
-          Frequently Asked Questions
+          {title}
         </h2>
         <p className="mt-1 text-[15px] sm:text-base text-[var(--text-secondary)] leading-relaxed">
-          Common questions regarding formulas, variances, compounding cycles, and calculation conventions.
+          {description}
         </p>
       </div>
 

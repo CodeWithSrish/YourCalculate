@@ -1,4 +1,4 @@
-export type InputType = "number" | "percentage" | "currency" | "select";
+export type InputType = "number" | "percentage" | "currency" | "select" | "date";
 
 export interface InputOption {
   label: string;
@@ -59,6 +59,8 @@ export interface CalculationOutput {
   secondaryValues?: SecondaryMetric[];
   stepExplanation?: string;
   error?: string;
+  disclaimer?: string;
+  disclaimerLabel?: string;
   amortizationSchedule?: AmortizationRow[];
   sipGrowthSchedule?: SIPGrowthRow[];
 }
@@ -69,7 +71,8 @@ export interface CalculationMode {
   description: string;
   formulaText: string;
   inputs: InputFieldDefinition[];
-  calculate: (inputs: Record<string, number>) => CalculationOutput;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  calculate: (inputs: any) => CalculationOutput;
 }
 
 export interface FormulaExplanation {
@@ -85,7 +88,7 @@ export interface CalculatorExample {
   title: string;
   description: string;
   modeId: string;
-  inputs: Record<string, number>;
+  inputs: Record<string, number | string>;
   expectedOutput: string;
 }
 

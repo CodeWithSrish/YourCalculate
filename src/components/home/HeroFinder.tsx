@@ -140,12 +140,17 @@ export function HeroFinder() {
                   onChange={handleInputChange}
                   onFocus={() => setIsOpen(true)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Search calculators (e.g. EMI, GPA, CGPA, percentage)..."
+                  placeholder="Search calculators (e.g. EMI, GPA, CGPA, percentage)"
                   autoComplete="off"
                   role="combobox"
                   aria-expanded={isOpen && hasQuery}
                   aria-controls="search-results-listbox"
                   aria-autocomplete="list"
+                  aria-activedescendant={
+                    isOpen && hasQuery && highlightedIndex >= 0 && results[highlightedIndex]
+                      ? `search-result-${results[highlightedIndex].calculator.id}`
+                      : undefined
+                  }
                   className="w-full rounded-lg border border-[var(--border-strong)] bg-[var(--surface)] py-3.5 pl-11 pr-10 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] transition-colors focus:border-[var(--primary)] focus:outline-none focus:ring-2 focus:ring-[var(--ring)] sm:text-base"
                 />
 
@@ -181,6 +186,7 @@ export function HeroFinder() {
                         return (
                           <div
                             key={calc.id}
+                            id={`search-result-${calc.id}`}
                             role="option"
                             aria-selected={isHighlighted}
                             onMouseEnter={() => setHighlightedIndex(index)}
@@ -214,14 +220,14 @@ export function HeroFinder() {
                   ) : (
                     <div className="p-4 text-center">
                       <p className="text-sm font-medium text-[var(--text-secondary)]">
-                        No matching calculator found for &ldquo;<span className="text-[var(--text-primary)] font-semibold">{query}</span>&rdquo;.
+                        No matching calculator found.
                       </p>
                       <Link
-                        href="#popular-calculators"
+                        href="/#calculator-directory"
                         onClick={() => setIsOpen(false)}
                         className="mt-2 inline-flex items-center text-xs font-semibold text-[var(--primary)] hover:underline"
                       >
-                        Browse all popular calculators →
+                        Browse all calculators →
                       </Link>
                     </div>
                   )}
@@ -245,10 +251,10 @@ export function HeroFinder() {
             </div>
           </div>
 
-          {/* Right Column: Quick Popular Calculations */}
+          {/* Right Column: Compact Discovery Element */}
           <div className="lg:col-span-5 xl:col-span-4 lg:border-l lg:border-[var(--border)] lg:pl-8">
             <h2 className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
-              Popular Calculations
+              Popular Right Now
             </h2>
 
             <div className="mt-3 divide-y divide-[var(--border)]">
@@ -263,13 +269,13 @@ export function HeroFinder() {
                     {isAvailable ? (
                       <Link
                         href={calc.slug}
-                        className="text-sm font-medium text-[var(--primary)] hover:underline flex items-center justify-between w-full focus:outline-none focus:ring-2 focus:ring-[var(--ring)] rounded-xs"
+                        className="text-sm font-medium text-[var(--text-primary)] hover:text-[var(--primary)] hover:underline flex items-center justify-between w-full focus:outline-none focus:ring-2 focus:ring-[var(--ring)] rounded-xs py-0.5"
                       >
-                        <span>{calc.name}</span>
-                        <span aria-hidden="true">→</span>
+                        <span className="truncate">{calc.name}</span>
+                        <span className="text-[var(--text-muted)] ml-2 text-xs" aria-hidden="true">→</span>
                       </Link>
                     ) : (
-                      <span className="text-sm font-medium text-[var(--text-primary)] cursor-default">
+                      <span className="text-sm font-medium text-[var(--text-secondary)] cursor-default">
                         {calc.name}
                       </span>
                     )}

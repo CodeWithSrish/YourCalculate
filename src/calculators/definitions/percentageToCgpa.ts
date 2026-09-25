@@ -230,6 +230,8 @@ export const percentageToCgpaCalculatorDefinition: CalculatorDefinition = {
   searchKeywords: [
     "percentage to cgpa",
     "cgpa to percentage",
+    "cgpa conversion",
+    "percentage cgpa",
     "percentage to cgpa calculator",
     "cgpa to percentage calculator",
     "percentage",
