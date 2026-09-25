@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint src",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "test": "npx tsx src/calculators/definitions/percentage.test.ts && npx tsx src/calculators/definitions/emi.test.ts && npx tsx src/calculators/definitions/sip.test.ts && npx tsx src/calculators/definitions/percentageToCgpa.test.ts && npx tsx src/calculators/definitions/cgpa.test.ts && npx tsx src/calculators/education/gpaEngine.test.ts && npx tsx src/calculators/engine/search.test.ts"
   },
   "dependencies": {
     "next": "^15.2.1",

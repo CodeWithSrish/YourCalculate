@@ -2,49 +2,55 @@ import { CATEGORIES } from "@/data/homepage";
 
 export function CategoryGrid() {
   return (
-    <section id="categories" className="border-t border-[var(--border)] bg-[var(--surface)] py-8 sm:py-12 scroll-mt-14">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="border-b border-[var(--border)] pb-3">
-          <h2 className="text-lg font-bold tracking-tight text-[var(--text-primary)] sm:text-xl">
-            Calculator Directory
-          </h2>
-          <p className="mt-0.5 text-xs text-[var(--text-secondary)] sm:text-sm">
-            Browse calculation engines organized across disciplines and everyday use cases.
-          </p>
+    <section id="calculator-directory" className="border-t border-[var(--border)] bg-[var(--surface)] py-8 sm:py-12 scroll-mt-14">
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
+        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between border-b border-[var(--border)] pb-2.5">
+          <div>
+            <h2 className="text-base sm:text-lg font-bold tracking-tight text-[var(--text-primary)]">
+              Explore Calculators
+            </h2>
+            <p className="text-xs text-[var(--text-secondary)]">
+              Comprehensive directory of calculation engines indexed across primary disciplines and applications.
+            </p>
+          </div>
+          <span className="mt-1 sm:mt-0 text-xs font-mono text-[var(--text-muted)]">
+            16 Primary Domains
+          </span>
         </div>
 
-        {/* Directory-style clean grid */}
-        <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Directory-style text-first multi-column layout without cards */}
+        <div className="mt-8 grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
           {CATEGORIES.map((cat) => {
             const isEducation = cat.id === "education-exams";
             return (
-              <div
-                key={cat.id}
-                className={`flex flex-col justify-start rounded p-2.5 transition-colors ${
-                  isEducation
-                    ? "bg-[var(--secondary)]/70"
-                    : "hover:bg-[var(--secondary)]/40"
-                }`}
-              >
-                <div className="flex items-center gap-1.5">
-                  <span
-                    className={`text-sm font-semibold ${
+              <div key={cat.id} className="flex flex-col">
+                <div className="flex items-center gap-1.5 pb-1 border-b border-[var(--border)]">
+                  <h3
+                    className={`text-sm font-bold tracking-tight ${
                       isEducation
                         ? "text-[var(--primary)]"
                         : "text-[var(--text-primary)]"
                     }`}
                   >
                     {cat.name}
-                  </span>
+                  </h3>
                   {isEducation && (
-                    <span className="text-[10px] font-medium text-[var(--primary)] font-mono">
-                      [Core]
+                    <span className="text-[10px] font-semibold text-[var(--primary)] font-mono">
+                      *
                     </span>
                   )}
                 </div>
-                <p className="mt-0.5 text-xs text-[var(--text-secondary)] line-clamp-2 leading-relaxed">
-                  {cat.description}
-                </p>
+
+                <ul className="mt-2.5 space-y-1.5 text-xs text-[var(--text-secondary)]">
+                  {cat.topics.map((topic) => (
+                    <li
+                      key={topic}
+                      className="text-[var(--text-secondary)] cursor-default"
+                    >
+                      {topic}
+                    </li>
+                  ))}
+                </ul>
               </div>
             );
           })}
