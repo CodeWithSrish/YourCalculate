@@ -1155,44 +1155,44 @@ export const fractionCalculatorDefinition: CalculatorDefinition = {
   ],
   faqs: [
     {
+      question: "How do I use a fraction in a calculator?",
+      answer:
+        "To use a fraction in this calculator, select your desired operation (Add, Subtract, Multiply, Divide, Simplify, or Mixed Number), enter the integer numerators and denominators into their dedicated fields, and the calculator will instantaneously generate the exact reduced fraction, step-by-step work, and decimal approximation.",
+    },
+    {
+      question: "How do I solve fractions on a calculator?",
+      answer:
+        "Choose the operation mode matching your problem, enter the numerators and non-zero denominators, and the solver executes exact integer arithmetic. It automatically identifies common denominators, performs reciprocal multiplication for division, and reduces the answer to lowest terms using GCD.",
+    },
+    {
+      question: "How do I simplify a fraction?",
+      answer:
+        "Use the 'Simplify Fraction' mode to enter your numerator and denominator. The calculator determines the Greatest Common Divisor (GCD) of both numbers using the Euclidean algorithm and divides both by it to produce the irreducible lowest form (e.g., 18/24 simplifies to 3/4).",
+    },
+    {
+      question: "How do I convert a fraction to a decimal?",
+      answer:
+        "To convert a fraction to a decimal, divide the top numerator by the bottom denominator (e.g., 3 ÷ 4 = 0.75). In YourCalculate, every fraction calculation automatically provides a precise decimal approximation in the secondary result metrics.",
+    },
+    {
       question: "How do you add fractions with different denominators?",
       answer:
-        "To add fractions with different denominators, first find the Least Common Denominator (LCD). Multiply the numerator and denominator of each fraction so they share this common denominator, then add the numerators together while keeping the denominator the same. Finally, simplify the resulting fraction to lowest terms.",
-    },
-    {
-      question: "How do you subtract fractions?",
-      answer:
-        "Convert both fractions to have a common denominator (using the LCM of the denominators). Subtract the second numerator from the first numerator, keep the common denominator, and reduce the fraction using their Greatest Common Divisor.",
-    },
-    {
-      question: "How do you multiply fractions?",
-      answer:
-        "Multiply the numerators together to get the new numerator, and multiply the denominators together to get the new denominator (a/b × c/d = ac/bd). You can also cross-cancel common factors between numerators and denominators before multiplying.",
+        "To add fractions with different denominators, first find the Least Common Denominator (LCD). Multiply the numerator and denominator of each fraction so they share this common denominator, then add the numerators together while keeping the denominator the same, reducing by GCD.",
     },
     {
       question: "How do you divide fractions using the reciprocal?",
       answer:
-        "To divide by a fraction, invert the divisor (flip the second fraction to get its reciprocal) and multiply: a/b ÷ c/d = a/b × d/c = ad/bc. Remember that dividing by a fraction equal to zero is mathematically undefined.",
+        "To divide by a fraction, invert the divisor (flip the second fraction to obtain its reciprocal) and multiply: a/b ÷ c/d = a/b × d/c = ad/bc. Dividing by a fraction equal to zero is mathematically undefined.",
     },
     {
-      question: "How do you simplify a fraction to its lowest terms?",
+      question: "How do you convert a mixed number to an improper fraction?",
       answer:
-        "Find the Greatest Common Divisor (GCD) of the numerator and denominator using the Euclidean algorithm, then divide both numbers by the GCD. For example, for 18/24, GCD(18, 24) = 6, giving (18 ÷ 6)/(24 ÷ 6) = 3/4.",
+        "Multiply the whole number by the denominator, add the numerator, and place the result over the original denominator. For example, for 2 1/3: (2 × 3 + 1) / 3 = 7/3.",
     },
     {
       question: "What is the difference between a proper and improper fraction?",
       answer:
         "A proper fraction has a numerator that is smaller than its denominator (e.g., 3/4), representing a value less than 1. An improper fraction has a numerator equal to or greater than its denominator (e.g., 7/3 or 5/5), representing a value of 1 or greater.",
-    },
-    {
-      question: "How do you convert a mixed number to an improper fraction?",
-      answer:
-        "Multiply the whole number by the denominator, add the numerator, and write the result over the original denominator. For example, for 2 1/3: (2 × 3 + 1) / 3 = 7/3.",
-    },
-    {
-      question: "Can a fraction have a negative numerator or denominator?",
-      answer:
-        "Yes. In canonical mathematics, a negative sign on either term makes the entire fraction negative (e.g., 1 / -2 = -1 / 2). If both terms are negative (-2 / -3), the negatives cancel out, resulting in a positive fraction (2/3).",
     },
   ],
   relatedCalculators: [

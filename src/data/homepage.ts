@@ -33,10 +33,10 @@ export interface TrustPoint {
 }
 
 export const SEARCH_SUGGESTIONS: SearchSuggestion[] = [
-  { text: "15% of 850", category: "Math" },
-  { text: "3.8 GPA on 4.0 scale", category: "Education & Exams" },
   { text: "₹50 lakh home loan EMI", category: "Finance" },
-  { text: "8.4 CGPA to percentage", category: "Education & Exams" },
+  { text: "Student marks percentage", category: "Math" },
+  { text: "8.5 CGPA to percentage", category: "Education & Exams" },
+  { text: "18% GST on ₹10,000", category: "Finance" },
 ];
 
 export const POPULAR_CALCULATORS: PopularCalculatorItem[] = [
@@ -159,6 +159,13 @@ export const POPULAR_CALCULATORS: PopularCalculatorItem[] = [
     category: "Math",
     slug: "/lcm-calculator",
   },
+  {
+    id: "scientific-calculator",
+    name: "Scientific Calculator",
+    description: "Advanced scientific calculator for trigonometry, logarithms, powers, roots, and complex expressions.",
+    category: "Math",
+    slug: "/scientific-calculator",
+  },
 ];
 
 export const CATEGORIES: CategoryItem[] = [
@@ -167,6 +174,7 @@ export const CATEGORIES: CategoryItem[] = [
     name: "Math",
     description: "Percentages, fractions, statistics, algebra, and geometry",
     topics: [
+      { name: "Scientific Calculator", slug: "/scientific-calculator", isAvailable: true },
       { name: "Percentage Calculator", slug: "/percentage-calculator", isAvailable: true },
       { name: "Fraction Calculator", slug: "/fraction-calculator", isAvailable: true },
       { name: "LCM & GCD Calculator", slug: "/lcm-calculator", isAvailable: true },

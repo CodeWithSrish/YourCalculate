@@ -325,19 +325,24 @@ export const averageCalculatorDefinition: CalculatorDefinition = {
   ],
   faqs: [
     {
-      question: "What is an average (arithmetic mean)?",
+      question: "How do I calculate an average using a calculator?",
       answer:
-        "An average, specifically the arithmetic mean, is a central statistical value calculated by adding together a group of numbers and dividing the sum by the total number of values in that group.",
+        "To calculate an average on a calculator, add all individual numbers together to find their total sum, then divide that sum by the total count of numbers. In this calculator, simply enter your numbers in the 'Simple Average' tab to get the mean, count, sum, and step-by-step formula breakdown.",
     },
     {
-      question: "How do you calculate a simple average?",
+      question: "How do I calculate the average of several numbers?",
       answer:
-        "To calculate a simple average, add all the numbers in your dataset to find the total sum, then divide that sum by the count of numbers. Formula: Average = (Sum of all values) / n.",
+        "Add all the numbers in your dataset together, then divide by the total number of values: Average = (x₁ + x₂ + ... + xₙ) ÷ n. For example, for 10, 20, and 30: Sum = 60, Count = 3, Average = 60 ÷ 3 = 20.",
     },
     {
-      question: "What is the difference between simple average and weighted average?",
+      question: "What is the difference between a simple average and a weighted average?",
       answer:
-        "In a simple average, every number has equal importance (equal weight). In a weighted average, certain values carry more influence or importance than others (such as an exam worth 60% versus a quiz worth 40%).",
+        "In a simple average (arithmetic mean), every number contributes equally to the final result. In a weighted average, different values carry different degrees of importance or weight (such as a 4-credit course vs a 2-credit course, or a 60% exam vs a 40% assignment).",
+    },
+    {
+      question: "When should I use a weighted average?",
+      answer:
+        "Use a weighted average whenever data points have unequal significance, such as calculating semester GPA with varied credit hours, portfolio investment returns with unequal capital allocations, or academic course grades with weighted exams and homework.",
     },
     {
       question: "Do weights in a weighted average have to add up to 100%?",
@@ -358,11 +363,6 @@ export const averageCalculatorDefinition: CalculatorDefinition = {
       question: "What is the difference between mean, median, and mode?",
       answer:
         "The mean is the mathematical average (sum divided by count). The median is the middle value when numbers are sorted in order. The mode is the value that appears most frequently in a dataset.",
-    },
-    {
-      question: "How many numbers can I calculate at once?",
-      answer:
-        "You can dynamically add up to 50 rows in both Simple Average and Weighted Average modes.",
     },
   ],
   relatedCalculators: [

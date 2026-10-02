@@ -539,14 +539,29 @@ export const bmiCalculatorDefinition: CalculatorDefinition = {
   ],
   faqs: [
     {
-      question: "What is Body Mass Index (BMI)?",
-      answer:
-        "Body Mass Index (BMI) is a screening tool that assesses weight relative to height. It is expressed in units of kg/m² and is widely used in clinical epidemiology and public health to categorize adult weight status into Underweight, Healthy Weight, Overweight, and Obesity.",
-    },
-    {
       question: "How is BMI calculated?",
       answer:
-        "For metric units, BMI is weight in kilograms divided by the square of height in meters: BMI = weight (kg) / height (m)². For US customary units, BMI is calculated as: BMI = (weight (lb) / height (inches)²) × 703.",
+        "For metric units, BMI is calculated by dividing weight in kilograms by the square of height in meters: BMI = weight (kg) ÷ (height (m))². For US customary units, BMI is calculated as: BMI = (weight (lb) ÷ (height (in))²) × 703.",
+    },
+    {
+      question: "What information do I need to calculate BMI?",
+      answer:
+        "To calculate your BMI, you need your current height (in centimeters or feet and inches), your body weight (in kilograms or pounds), and your age. Adults aged 20 and older are evaluated against standard adult weight categories.",
+    },
+    {
+      question: "Can I calculate BMI using height in feet and weight in kilograms?",
+      answer:
+        "YourCalculate provides dedicated Metric (cm and kg) and US Customary (ft/in and lb) modes. If your height is in feet and your weight is in kilograms, convert your height to centimeters (1 foot = 30.48 cm, 1 inch = 2.54 cm) to use Metric mode, or convert your weight to pounds (1 kg ≈ 2.20462 lb) to use US Customary mode.",
+    },
+    {
+      question: "Does BMI directly measure body fat?",
+      answer:
+        "No. BMI is an anthropometric screening ratio based solely on height and weight. It does not directly measure body fat percentage, lean muscle mass, bone density, or adipose tissue distribution. Two individuals with the same BMI may have substantially different body compositions.",
+    },
+    {
+      question: "Does age or sex affect how BMI is interpreted?",
+      answer:
+        "Standard CDC and WHO adult BMI categories (18.5 to 24.9 as healthy weight) apply equally across adult men and women aged 20 and older. However, because body composition naturally varies by biological sex and changes with aging, BMI should be interpreted as an initial screening indicator rather than a comprehensive diagnostic measure.",
     },
     {
       question: "What BMI categories are used for adults?",
@@ -554,19 +569,9 @@ export const bmiCalculatorDefinition: CalculatorDefinition = {
         "According to standard CDC and WHO guidelines for adults (ages 20+): Underweight is BMI < 18.5, Healthy Weight is 18.5 ≤ BMI < 25.0, Overweight is 25.0 ≤ BMI < 30.0, and Obesity is BMI ≥ 30.0 (subdivided into Class 1: 30.0–34.9, Class 2: 35.0–39.9, and Class 3: ≥ 40.0).",
     },
     {
-      question: "Can I calculate BMI in kg and cm or pounds and feet/inches?",
-      answer:
-        "Yes. YourCalculate supports both Metric mode (height in centimeters, weight in kilograms) and US Customary mode (height in feet and inches, weight in pounds). Both modes use exact conversion factors without premature rounding.",
-    },
-    {
       question: "Does this BMI calculator work for children and teenagers?",
       answer:
-        "No. This calculator is explicitly designed for adults aged 20 and older. For children and teens (ages 2–19), BMI cannot be interpreted using static adult categories. It must be evaluated using pediatric BMI-for-age percentiles and sex-specific CDC/WHO growth charts.",
-    },
-    {
-      question: "Does BMI diagnose health conditions or body fat percentage?",
-      answer:
-        "No. BMI is a screening metric, not a clinical diagnostic tool. It does not directly distinguish between fat mass, lean muscle, bone density, or fat distribution (such as visceral fat). For a personalized health evaluation, consult a qualified medical professional.",
+        "No. This calculator is designed specifically for adults aged 20 and older. For children and adolescents (ages 2–19), BMI must be evaluated using pediatric BMI-for-age percentiles and sex-specific growth charts rather than fixed adult cutoff thresholds.",
     },
   ],
   relatedCalculators: [
@@ -582,6 +587,13 @@ export const bmiCalculatorDefinition: CalculatorDefinition = {
       name: "Percentage Calculator",
       category: "Math",
       slug: "/percentage-calculator",
+      isAvailable: true,
+    },
+    {
+      id: "average-calculator",
+      name: "Average Calculator",
+      category: "Math",
+      slug: "/average-calculator",
       isAvailable: true,
     },
   ],

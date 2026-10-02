@@ -562,34 +562,34 @@ export const ratioCalculatorDefinition: CalculatorDefinition = {
   ],
   faqs: [
     {
-      question: "What is a ratio?",
+      question: "What is a ratio calculator?",
       answer:
-        "A ratio is a mathematical comparison of two or more quantities that indicates how many times one number contains or relates to another (e.g., 2 : 3).",
+        "A ratio calculator is a mathematical tool that compares quantities, reduces ratios to their simplest integer form (A : B), solves missing terms in equivalent proportions (A : B = C : D), and splits amounts into proportional shares.",
     },
     {
-      question: "How do you simplify a ratio?",
+      question: "How do I calculate a ratio using a calculator?",
       answer:
-        "To simplify a ratio, find the Greatest Common Divisor (GCD) of both terms and divide both sides by that number. For example, for 12 : 18, dividing both by 6 gives 2 : 3.",
+        "To calculate a ratio, select the mode that matches your goal: use 'Simplify Ratio' to reduce a two-part ratio, 'Solve Proportion' to find an unknown fourth value, or 'Split Amount' to divide a total amount into multiple proportional parts.",
     },
     {
-      question: "How do you simplify ratios with decimal numbers?",
+      question: "How do I find a ratio from two numbers?",
       answer:
-        "Multiply all terms by 10, 100, or 1,000 until they are converted into whole numbers, then divide by their GCD. For example, 1.5 : 2.5 multiplied by 10 becomes 15 : 25, which simplifies by 5 to 3 : 5.",
+        "To find the ratio between two numbers, enter the two values as Part A and Part B in the 'Simplify Ratio' mode. The calculator computes their Greatest Common Divisor (GCD) and divides both terms to display the simplest integer ratio along with its decimal equivalent.",
     },
     {
-      question: "What is a proportion?",
+      question: "How do I simplify a ratio?",
       answer:
-        "A proportion is an equation stating that two ratios are equivalent, written as A : B = C : D. It satisfies the fundamental cross-multiplication identity A × D = B × C.",
+        "To simplify a ratio, find the Greatest Common Divisor (GCD) of all terms and divide each term by the GCD. For example, for 12 : 18, dividing both terms by 6 gives the irreducible ratio 2 : 3.",
     },
     {
-      question: "How do you solve for a missing value in a proportion?",
+      question: "How do I solve a proportion using a ratio calculator?",
       answer:
-        "Use cross-multiplication: multiply the diagonally opposite known values together, and divide by the remaining known value. For example, in 2 : 3 = 4 : D, D = (3 × 4) ÷ 2 = 6.",
+        "In the 'Solve Proportion' mode, enter the three known values in the equation A : B = C : D. The calculator uses cross-multiplication (A × D = B × C) to solve for the missing term automatically (e.g., in 2 : 3 = 4 : D, D = (3 × 4) ÷ 2 = 6).",
     },
     {
       question: "How do you divide an amount in a given ratio?",
       answer:
-        "1) Sum the ratio parts to get the total parts. 2) Divide the total amount by total parts to find the value of one part. 3) Multiply the single-part value by each individual ratio number.",
+        "1) Sum the ratio parts to determine the total number of shares. 2) Divide the total amount by the sum of parts to find the value of one share. 3) Multiply the single-share value by each individual ratio part.",
     },
     {
       question: "Can I split an amount into more than two parts?",
@@ -597,9 +597,9 @@ export const ratioCalculatorDefinition: CalculatorDefinition = {
         "Yes. You can add up to 10 ratio parts (such as 2 : 3 : 5). Each share is computed proportionally using Part = (Total × Part Ratio) / Total Ratio Sum.",
     },
     {
-      question: "Can a ratio contain negative numbers or zeros?",
+      question: "How do you simplify ratios with decimal numbers?",
       answer:
-        "Standard practical ratios represent positive quantities, measurements, or shares. In proportion calculations, zeros are supported as long as they do not cause a division by zero.",
+        "Multiply all terms by 10, 100, or 1,000 until they are whole numbers, then divide by their GCD. For example, 1.5 : 2.5 multiplied by 10 becomes 15 : 25, which simplifies by 5 to 3 : 5.",
     },
   ],
   relatedCalculators: [

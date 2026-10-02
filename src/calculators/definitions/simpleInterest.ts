@@ -259,48 +259,48 @@ export const simpleInterestCalculatorDefinition: CalculatorDefinition = {
       expectedOutput: "₹20,000.00",
     },
     {
-      title: "Example 4: ₹25,000 at 0% for 5 Years",
-      description: "Boundary condition with 0% interest rate.",
+      title: "Example 4: ₹50,000 at 9% for 0.5 Years (Short-Term)",
+      description: "Short-term 6-month simple interest calculation demonstrating decimal tenure.",
       modeId: "simple-interest",
-      inputs: { principal: 25000, annualRate: 0, timeYears: 5 },
-      expectedOutput: "₹0.00",
+      inputs: { principal: 50000, annualRate: 9, timeYears: 0.5 },
+      expectedOutput: "₹2,250.00",
     },
   ],
   faqs: [
     {
-      question: "What is simple interest?",
+      question: "What is a simple interest calculator?",
       answer:
-        "Simple interest is a method of calculating interest where the fee or return is charged strictly on the original principal amount for the entire duration, without compounding.",
+        "A simple interest calculator is a financial tool that computes the interest earned or owed on an initial principal balance over a given time duration at a fixed annual interest rate, without compounding.",
     },
     {
-      question: "How is simple interest calculated?",
+      question: "How do I calculate simple interest using a calculator?",
       answer:
-        "Simple interest is calculated using the formula SI = (P × R × T) / 100, where P is the Principal amount, R is the Annual Interest Rate in percent, and T is the Time period in years.",
+        "Enter the initial principal amount, the annual interest rate percentage, and the time period in years. The calculator applies the formula SI = (P × R × T) ÷ 100 to instantly display the accrued simple interest and final maturity amount.",
+    },
+    {
+      question: "What is the formula for simple interest?",
+      answer:
+        "The standard formula for simple interest is SI = (P × R × T) ÷ 100, where P is the Principal amount, R is the Annual Interest Rate in percent, and T is the Time period in years.",
     },
     {
       question: "What is the difference between simple interest and compound interest?",
       answer:
-        "Simple interest is computed only on the initial principal sum. Compound interest is calculated on the initial principal plus all accumulated interest from previous compounding periods, leading to exponential growth over time.",
+        "Simple interest is computed strictly on the initial principal sum throughout the duration. Compound interest calculates returns on both the principal and all accumulated interest from previous compounding periods, leading to exponential growth.",
     },
     {
       question: "Can I calculate simple interest for decimal years or months?",
       answer:
-        "Yes. You can enter decimal years such as 0.5 years (6 months), 1.5 years (18 months), or 2.5 years (30 months) with full mathematical accuracy.",
+        "Yes. You can enter fractional years such as 0.5 years (6 months), 1.5 years (18 months), or 2.5 years (30 months) with full mathematical precision.",
+    },
+    {
+      question: "How is the total maturity amount calculated?",
+      answer:
+        "The total maturity amount is the sum of the initial principal and the total simple interest earned: Total Amount = Principal + Simple Interest, or A = P × (1 + (R × T) ÷ 100).",
     },
     {
       question: "What happens when the interest rate is 0%?",
       answer:
         "When the interest rate is 0%, no interest is earned or owed (SI = ₹0.00), and the final total amount remains exactly equal to the starting principal amount.",
-    },
-    {
-      question: "How is the total maturity amount calculated?",
-      answer:
-        "The total maturity amount is the sum of the initial principal and the total simple interest earned: Total Amount = Principal + Simple Interest.",
-    },
-    {
-      question: "Where is simple interest commonly used?",
-      answer:
-        "Simple interest is frequently used for short-term personal loans, automotive financing, informal lending, and certain government savings schemes where periodic compounding does not apply.",
     },
   ],
   relatedCalculators: [

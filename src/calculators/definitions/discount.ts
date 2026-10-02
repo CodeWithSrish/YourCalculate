@@ -441,11 +441,11 @@ export const discountCalculatorDefinition: CalculatorDefinition = {
       expectedOutput: "1,500",
     },
     {
-      title: "Example 2: 40% off 5,000",
-      description: "Calculating the sale price on a larger purchase with 40% discount.",
+      title: "Example 2: 30% off 2,499 (Retail Sale)",
+      description: "Calculating the final sale price and savings on an item priced at 2,499 with 30% discount.",
       modeId: "sale-price",
-      inputs: { originalPrice: 5000, discountPercent: 40 },
-      expectedOutput: "3,000",
+      inputs: { originalPrice: 2499, discountPercent: 30 },
+      expectedOutput: "1,749.30",
     },
     {
       title: "Example 3: Original 2,500 to Sale 2,000",
@@ -464,29 +464,29 @@ export const discountCalculatorDefinition: CalculatorDefinition = {
   ],
   faqs: [
     {
-      question: "How do I calculate a discount?",
+      question: "How do I calculate a discount using a calculator?",
       answer:
-        "To calculate a discount, multiply the original price by the discount percentage and divide by 100 to get total savings. For example, a 20% discount on a 1,000 item is: 1,000 × (20 / 100) = 200 savings.",
+        "Enter the original item price and the discount percentage into the calculator. The tool computes your total savings using the formula Savings = Original Price × (Discount % ÷ 100) and automatically determines the final discounted price.",
     },
     {
-      question: "How do I calculate the final sale price?",
+      question: "How do I calculate discount percentage?",
       answer:
-        "Subtract the discount savings from the original price: Final Price = Original Price − Discount Amount. Alternatively, multiply the original price by (1 − Discount% / 100).",
+        "Switch to the 'Calculate Discount %' mode, enter the original price and the discounted sale price. The calculator determines the percentage reduction using: Discount % = ((Original Price − Sale Price) ÷ Original Price) × 100.",
     },
     {
-      question: "How do I calculate the discount percentage?",
+      question: "How do I calculate a 10% discount?",
       answer:
-        "Subtract the sale price from the original price to find the savings, divide that savings by the original price, and multiply by 100: Discount % = ((Original Price − Sale Price) / Original Price) × 100.",
+        "To calculate a 10% discount, multiply the original price by 0.10 to find your savings, then subtract that figure from the original price. For example, a 10% discount on 500 gives 50 savings, leaving a final price of 450.",
     },
     {
-      question: "How do I find the original price before a discount?",
+      question: "How do I calculate the final price after a discount?",
       answer:
-        "Divide the sale price by (1 − Discount% / 100). For example, if a jacket on a 25% sale costs 1,500, the original price was: 1,500 / (1 − 0.25) = 1,500 / 0.75 = 2,000.",
+        "Subtract the calculated savings from the original retail price (Final Price = Original Price − Discount Amount), or multiply the original price by (1 − Discount % ÷ 100).",
     },
     {
-      question: "How much is 20% off 1,000?",
+      question: "How do I calculate the original price from a discounted price?",
       answer:
-        "20% off 1,000 saves you 200, resulting in a final sale price of 800.",
+        "Switch to the 'Calculate Original Price' mode, enter the discounted sale price and the percentage discount that was applied. The original price is calculated using: Original Price = Sale Price ÷ (1 − Discount % ÷ 100).",
     },
     {
       question: "Can I calculate decimal discounts and prices?",
@@ -495,6 +495,13 @@ export const discountCalculatorDefinition: CalculatorDefinition = {
     },
   ],
   relatedCalculators: [
+    {
+      id: "gst-calculator",
+      name: "GST Calculator",
+      category: "Finance",
+      slug: "/gst-calculator",
+      isAvailable: true,
+    },
     {
       id: "percentage-calculator",
       name: "Percentage Calculator",

@@ -438,9 +438,9 @@ export const loanCalculatorDefinition: CalculatorDefinition = {
   category: "Finance",
   categorySlug: "finance",
   shortDescription:
-    "Calculate monthly loan payments, determine maximum borrowing capacity, or find out how long it takes to pay off debt.",
+    "Analyze complete loan repayment scenarios: calculate monthly payments, evaluate maximum borrowing capacity, or compute exact payoff duration with multi-mode repayment analysis.",
   longDescription:
-    "A comprehensive, deterministic 3-mode loan decision calculator. Calculate exact monthly repayments, estimate maximum affordable loan principal from your monthly budget, or compute the exact time required to clear a loan.",
+    "A comprehensive, deterministic 3-mode loan decision engine. While our EMI Calculator focuses strictly on standard monthly installments, this Loan Calculator provides broader repayment analysis including calculating monthly installments, determining maximum borrowing capacity from a target budget, and computing accelerated payoff duration.",
   icon: "🏦",
   searchKeywords: [
     "loan",
@@ -671,34 +671,34 @@ export const loanCalculatorDefinition: CalculatorDefinition = {
   ],
   faqs: [
     {
+      question: "How do I calculate a loan payment using a calculator?",
+      answer:
+        "Enter your target borrowing principal, the annual lending interest rate, and desired tenure in years in the 'Loan Payment' mode. The calculator applies the standard reducing-balance amortization formula to determine your fixed monthly payment, total interest cost, and overall repayment amount.",
+    },
+    {
+      question: "How much can I borrow based on my monthly repayment budget?",
+      answer:
+        "Switch to the 'How Much Can I Borrow?' mode, enter your comfortable monthly repayment budget, expected interest rate, and target tenure. The calculator computes your estimated maximum borrowing capacity based on installment mathematics (formal loan approval also depends on lender credit policies, income criteria, and debt ratios).",
+    },
+    {
+      question: "How can I calculate loan tenure?",
+      answer:
+        "Switch to the 'Loan Tenure' mode, enter your loan amount, annual interest rate, and fixed monthly payment amount. The calculator computes the exact number of months and years required to fully amortize the principal.",
+    },
+    {
+      question: "How can extra payments reduce loan tenure or interest?",
+      answer:
+        "Every rupee paid above the monthly interest charge directly reduces the outstanding principal balance. Because subsequent monthly interest is computed on a smaller balance, a greater portion of each subsequent payment pays down principal, significantly shortening your payoff timeline and reducing total interest expense.",
+    },
+    {
       question: "How is a Loan Calculator different from an EMI Calculator?",
       answer:
-        "While both calculate loan installments, our Loan Calculator offers three distinct modes: calculating monthly payments, reverse-calculating maximum borrowing capacity from your monthly budget, and finding payoff duration. Our EMI Calculator specifically focuses on month-by-month amortization schedules.",
-    },
-    {
-      question: "How does the loan payment formula work?",
-      answer:
-        "Monthly payments are calculated using the reducing balance method: PMT = P × [r(1+r)^n] / [(1+r)^n - 1], where P is the principal, r is the monthly interest rate (annual rate / 12 / 100), and n is the total number of monthly payments.",
-    },
-    {
-      question: "What is borrowing capacity and how is it calculated?",
-      answer:
-        "Borrowing capacity represents the maximum loan principal a lender will extend based on your monthly repayment budget. It calculates the present value of all future monthly installments at the given interest rate.",
-    },
-    {
-      question: "Why must my monthly payment exceed initial monthly interest in Mode 3?",
-      answer:
-        "If your monthly payment is less than or equal to the initial monthly interest charge, the principal balance will never decrease (a condition known as negative amortization). Your payment must exceed the monthly interest to reduce the loan balance over time.",
-    },
-    {
-      question: "How does increasing my monthly payment shorten loan tenure?",
-      answer:
-        "Every rupee paid above the monthly interest directly reduces the principal balance. Because subsequent interest is calculated on a lower balance, a larger share of future payments goes toward principal, drastically shortening payoff duration.",
+        "While both tools calculate monthly installments, our EMI Calculator focuses strictly on standard fixed monthly installments and repayment breakdowns. This Loan Calculator provides broader multi-mode financial analysis: calculating monthly payments, estimating maximum borrowing power from a target budget, and computing payoff duration when making fixed payments.",
     },
     {
       question: "Does this calculator account for processing fees and taxes?",
       answer:
-        "This tool performs pure mathematical interest and principal calculations. Bank processing fees, documentation charges, and GST on financial services are determined by individual lending institutions.",
+        "This tool performs mathematical principal and interest estimations. Bank processing fees, documentation charges, and statutory taxes on credit facilities are set by individual lending institutions and are not included in the basic repayment math.",
     },
   ],
   relatedCalculators: [

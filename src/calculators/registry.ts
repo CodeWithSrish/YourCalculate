@@ -16,6 +16,7 @@ import { averageCalculatorDefinition } from "./definitions/average";
 import { ratioCalculatorDefinition } from "./definitions/ratio";
 import { fractionCalculatorDefinition } from "./definitions/fraction";
 import { lcmCalculatorDefinition } from "./definitions/lcm";
+import { scientificCalculatorDefinition } from "./definitions/scientific";
 
 const CALCULATOR_REGISTRY: Record<string, CalculatorDefinition> = {
   [percentageCalculatorDefinition.slug]: percentageCalculatorDefinition,
@@ -35,6 +36,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorDefinition> = {
   [ratioCalculatorDefinition.slug]: ratioCalculatorDefinition,
   [fractionCalculatorDefinition.slug]: fractionCalculatorDefinition,
   [lcmCalculatorDefinition.slug]: lcmCalculatorDefinition,
+  [scientificCalculatorDefinition.slug]: scientificCalculatorDefinition,
 };
 
 export function getCalculatorBySlug(slug: string): CalculatorDefinition | undefined {

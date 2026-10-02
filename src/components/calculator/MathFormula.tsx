@@ -65,6 +65,22 @@ function renderMathTokens(input: string): React.ReactNode[] {
       continue;
     }
 
+    // 1b. Match \sqrt{...} or \sqrt(...)
+    const sqrtMatch = remaining.match(/^\\sqrt(?:\{((?:[^{}]|\{[^{}]*\})+)\}|\(((?:[^()]|\([^()]*\))+)\})/);
+    if (sqrtMatch) {
+      const inner = sqrtMatch[1] || sqrtMatch[2];
+      nodes.push(
+        <span key={`sqrt-${keyIndex++}`} className="inline-flex items-center align-middle mx-1">
+          <span className="text-[1.15em] font-light leading-none mr-0.5">√</span>
+          <span className="border-t border-current pt-0.5 px-1 leading-none">
+            {renderMathTokens(inner)}
+          </span>
+        </span>
+      );
+      remaining = remaining.slice(sqrtMatch[0].length);
+      continue;
+    }
+
     // 2. Match \text{...}
     const textMatch = remaining.match(/^\\text\{((?:[^{}]|\{[^{}]*\})+)\}/);
     if (textMatch) {
@@ -77,7 +93,18 @@ function renderMathTokens(input: string): React.ReactNode[] {
       continue;
     }
 
-    // 3. Match exponents: ^{...} or ^x
+    // 3. Match exponents: ^{...} or ^x or unicode superscripts
+    if (remaining.startsWith("²") || remaining.startsWith("³")) {
+      const char = remaining[0];
+      nodes.push(
+        <sup key={`exp-${keyIndex++}`} className="text-[0.7em] font-medium leading-none ml-0.5 -top-1.5">
+          {char === "²" ? "2" : "3"}
+        </sup>
+      );
+      remaining = remaining.slice(1);
+      continue;
+    }
+
     const expMatch = remaining.match(/^\^(\{((?:[^{}]|\{[^{}]*\})+)\}|([a-zA-Z0-9ⁿ]))/);
     if (expMatch) {
       const expContent = expMatch[2] || expMatch[3];
@@ -90,7 +117,19 @@ function renderMathTokens(input: string): React.ReactNode[] {
       continue;
     }
 
-    // 4. Match subscripts: _{...} or _x
+    // 4. Match subscripts: _{...} or _x or unicode subscripts
+    if (/^[₁₂₃₄₅₆₇₈₉₀]/.test(remaining)) {
+      const char = remaining[0];
+      const digitMap: Record<string, string> = { "₁": "1", "₂": "2", "₃": "3", "₄": "4", "₅": "5", "₆": "6", "₇": "7", "₈": "8", "₉": "9", "₀": "0" };
+      nodes.push(
+        <sub key={`sub-${keyIndex++}`} className="text-[0.7em] font-medium leading-none ml-0.5 -bottom-1">
+          {digitMap[char] || char}
+        </sub>
+      );
+      remaining = remaining.slice(1);
+      continue;
+    }
+
     const subMatch = remaining.match(/^_(\{((?:[^{}]|\{[^{}]*\})+)\}|([a-zA-Z0-9]))/);
     if (subMatch) {
       const subContent = subMatch[2] || subMatch[3];
@@ -104,6 +143,50 @@ function renderMathTokens(input: string): React.ReactNode[] {
     }
 
     // 5. Match LaTeX symbols & Greek letters
+    if (remaining.startsWith("\\pi") || remaining.startsWith("π")) {
+      const len = remaining.startsWith("\\pi") ? 3 : 1;
+      nodes.push(
+        <span key={`sym-${keyIndex++}`} className="font-serif italic font-semibold px-0.5">
+          π
+        </span>
+      );
+      remaining = remaining.slice(len);
+      continue;
+    }
+
+    if (remaining.startsWith("\\theta") || remaining.startsWith("θ")) {
+      const len = remaining.startsWith("\\theta") ? 6 : 1;
+      nodes.push(
+        <span key={`sym-${keyIndex++}`} className="font-serif italic font-semibold px-0.5">
+          θ
+        </span>
+      );
+      remaining = remaining.slice(len);
+      continue;
+    }
+
+    if (remaining.startsWith("\\mu") || remaining.startsWith("μ")) {
+      const len = remaining.startsWith("\\mu") ? 3 : 1;
+      nodes.push(
+        <span key={`sym-${keyIndex++}`} className="font-serif italic font-semibold px-0.5">
+          μ
+        </span>
+      );
+      remaining = remaining.slice(len);
+      continue;
+    }
+
+    if (remaining.startsWith("\\sigma") || remaining.startsWith("σ")) {
+      const len = remaining.startsWith("\\sigma") ? 6 : 1;
+      nodes.push(
+        <span key={`sym-${keyIndex++}`} className="font-serif italic font-semibold px-0.5">
+          σ
+        </span>
+      );
+      remaining = remaining.slice(len);
+      continue;
+    }
+
     if (remaining.startsWith("\\Delta") || remaining.startsWith("Δ")) {
       const len = remaining.startsWith("\\Delta") ? 6 : 1;
       nodes.push(

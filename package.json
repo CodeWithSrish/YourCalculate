@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint src",
     "type-check": "tsc --noEmit",
-    "test": "npx tsx src/calculators/definitions/percentage.test.ts && npx tsx src/calculators/definitions/emi.test.ts && npx tsx src/calculators/definitions/sip.test.ts && npx tsx src/calculators/definitions/percentageToCgpa.test.ts && npx tsx src/calculators/definitions/cgpa.test.ts && npx tsx src/calculators/education/gpaEngine.test.ts && npx tsx src/calculators/engine/search.test.ts && npx tsx src/calculators/engine/dateEngine.test.ts && npx tsx src/calculators/definitions/bmi.test.ts && npx tsx src/calculators/definitions/discount.test.ts && npx tsx src/calculators/definitions/gst.test.ts && npx tsx src/calculators/definitions/compoundInterest.test.ts && npx tsx src/calculators/definitions/loan.test.ts && npx tsx src/calculators/definitions/simpleInterest.test.ts && npx tsx src/calculators/definitions/average.test.ts && npx tsx src/calculators/definitions/ratio.test.ts && npx tsx src/calculators/definitions/fraction.test.ts && npx tsx src/calculators/definitions/lcm.test.ts"
+    "test": "npx tsx src/calculators/definitions/percentage.test.ts && npx tsx src/calculators/definitions/emi.test.ts && npx tsx src/calculators/definitions/sip.test.ts && npx tsx src/calculators/definitions/percentageToCgpa.test.ts && npx tsx src/calculators/definitions/cgpa.test.ts && npx tsx src/calculators/education/gpaEngine.test.ts && npx tsx src/calculators/engine/search.test.ts && npx tsx src/calculators/engine/dateEngine.test.ts && npx tsx src/calculators/definitions/bmi.test.ts && npx tsx src/calculators/definitions/discount.test.ts && npx tsx src/calculators/definitions/gst.test.ts && npx tsx src/calculators/definitions/compoundInterest.test.ts && npx tsx src/calculators/definitions/loan.test.ts && npx tsx src/calculators/definitions/simpleInterest.test.ts && npx tsx src/calculators/definitions/average.test.ts && npx tsx src/calculators/definitions/ratio.test.ts && npx tsx src/calculators/definitions/fraction.test.ts && npx tsx src/calculators/definitions/lcm.test.ts && npx tsx src/calculators/definitions/scientific.test.ts && npx tsx src/calculators/definitions/scientificVerify.test.ts && npx tsx src/calculators/definitions/scientificDiagnostics.test.ts && npx tsx src/calculators/definitions/scientificFormulas.test.ts && npx tsx src/calculators/definitions/scientificComplex.test.ts",
+    "deploy": "next build && npx wrangler pages deploy out --project-name=yourcalculate --branch=main --commit-dirty=true",
+    "deploy:ci": "npx wrangler pages deploy out --project-name=yourcalculate --branch=main --commit-dirty=true"
   },
   "dependencies": {
     "next": "^15.2.1",
@@ -24,6 +26,7 @@
     "eslint-config-next": "^15.2.1",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.0.9",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "wrangler": "^4.143.0"
   }
 }

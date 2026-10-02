@@ -490,39 +490,39 @@ export const gstCalculatorDefinition: CalculatorDefinition = {
   ],
   faqs: [
     {
-      question: "How do I calculate GST on a price?",
+      question: "How do I calculate GST using a calculator?",
       answer:
-        "To calculate GST, multiply the pre-tax base price by the GST percentage rate and divide by 100. For example, 18% GST on a 10,000 base price is: 10,000 × (18 / 100) = 1,800 GST amount, making the total price 11,800.",
+        "Enter your pre-tax base price and the applicable GST percentage rate into the calculator. The tool calculates total GST (Base Price × GST% ÷ 100) and displays both the tax amount and the gross total price.",
     },
     {
-      question: "How do I add GST to an amount?",
+      question: "How do I calculate 18% GST?",
       answer:
-        "Calculate the GST amount and add it to the base price: Final Price = Base Price + (Base Price × GST Rate / 100). Alternatively, multiply the base price by (1 + GST Rate / 100).",
+        "To add 18% GST, multiply the base price by 0.18 to find the tax amount, or by 1.18 to get the final inclusive total. To remove 18% GST from a gross amount, divide the gross inclusive price by 1.18 to find the pre-tax base price.",
     },
     {
-      question: "How do I remove GST from a GST-inclusive price?",
+      question: "How do I calculate GST-inclusive and GST-exclusive prices?",
       answer:
-        "To reverse-calculate the base price from an inclusive amount, divide the gross amount by (1 + GST Rate / 100). For an 11,800 bill with 18% GST: Base Price = 11,800 / 1.18 = 10,000. The GST amount is 11,800 − 10,000 = 1,800.",
+        "To find a GST-inclusive price from an exclusive amount, use the 'Add GST' mode (Final Price = Base Price + Base Price × GST% ÷ 100). To extract an exclusive base price from an inclusive total, use the 'Remove GST' mode (Base Price = Inclusive Price ÷ (1 + GST% ÷ 100)).",
     },
     {
-      question: "What is the difference between CGST, SGST, and IGST?",
+      question: "What is the difference between CGST, SGST/UTGST and IGST?",
       answer:
-        "For intra-state transactions (within the same state or UT), GST is divided equally into Central GST (CGST) and State GST (SGST). For inter-state transactions (between different states), Integrated GST (IGST) is charged by the Central government on the full tax amount.",
-    },
-    {
-      question: "How is 18% GST calculated?",
-      answer:
-        "To add 18% GST, multiply the base price by 0.18 for the tax amount, or by 1.18 for the final total. To remove 18% GST from a gross amount, divide by 1.18 to find the base price.",
+        "In this calculator, Intra-State mode splits the entered GST rate equally between Central GST (CGST) and State/UT GST (SGST/UTGST). Inter-State mode applies the entered rate fully as Integrated GST (IGST). Actual GST treatment and classification depend on the specific transaction and prevailing tax rules.",
     },
     {
       question: "How do I calculate the price before GST?",
       answer:
-        "Use the Remove GST formula: Pre-tax Price = Inclusive Amount / (1 + GST% / 100). Subtracting the pre-tax price from the inclusive amount gives the exact GST paid.",
+        "Use the Remove GST mode and enter the gross invoice amount and GST rate. The calculator divides the inclusive price by (1 + GST% ÷ 100) to find the pre-tax base price.",
+    },
+    {
+      question: "How do I add GST to an amount?",
+      answer:
+        "Enter the pre-tax amount and GST percentage in the 'Add GST' mode. The calculator multiplies the base price by the rate percentage and adds it to the base price to produce the final gross total.",
     },
     {
       question: "Can I enter a custom or decimal GST rate?",
       answer:
-        "Yes. YourCalculate supports any valid GST rate percentage, including standard slabs (0%, 5%, 12%, 18%, 28%) and specialized or fractional rates (such as 0.25%, 3%, or 18.5%) with full mathematical precision.",
+        "Yes. YourCalculate supports standard GST slabs (0%, 5%, 12%, 18%, 28%) as well as custom or fractional rates (such as 0.25%, 3%, or 18.5%) with exact floating-point precision.",
     },
   ],
   relatedCalculators: [

@@ -352,27 +352,41 @@ export const percentageCalculatorDefinition: CalculatorDefinition = {
     },
     {
       title: "Example 2: 20 is what % of 80 = 25%",
-      description: "Determining exam score proportion when answering 20 questions correctly out of 80.",
+      description: "Determining proportional share when answering 20 questions correctly out of 80.",
       modeId: "what-percentage-of",
       inputs: { value: 20, total: 80 },
       expectedOutput: "25%",
     },
     {
-      title: "Example 3: Value increases from 100 to 125 = 25% increase",
-      description: "Measuring portfolio value growth from an initial 100 to a current value of 125.",
+      title: "Example 3: Student Exam Marks (465 out of 500 = 93%)",
+      description: "Calculating academic exam percentage from total marks obtained across all subjects.",
+      modeId: "what-percentage-of",
+      inputs: { value: 465, total: 500 },
+      expectedOutput: "93%",
+    },
+    {
+      title: "Example 4: Salary Hike (₹8,00,000 to ₹10,00,000 = 25% increase)",
+      description: "Calculating annual compensation increase percentage between current and revised CTC.",
       modeId: "percentage-increase",
-      inputs: { initialValue: 100, finalValue: 125 },
+      inputs: { initialValue: 800000, finalValue: 1000000 },
       expectedOutput: "25%",
     },
     {
-      title: "Example 4: Value decreases from 200 to 150 = 25% decrease",
+      title: "Example 5: Attendance Percentage (45 out of 60 classes = 75%)",
+      description: "Evaluating term attendance compliance against minimum institutional course requirements.",
+      modeId: "what-percentage-of",
+      inputs: { value: 45, total: 60 },
+      expectedOutput: "75%",
+    },
+    {
+      title: "Example 6: Value decreases from 200 to 150 = 25% decrease",
       description: "Tracking energy bill reduction from a baseline of 200 down to 150.",
       modeId: "percentage-decrease",
       inputs: { initialValue: 200, finalValue: 150 },
       expectedOutput: "25%",
     },
     {
-      title: "Example 5: Percentage difference between 100 and 120 = 18.1818%",
+      title: "Example 7: Percentage difference between 100 and 120 = 18.1818%",
       description: "Comparing test readings between two lab devices measuring 100 and 120 units.",
       modeId: "percentage-difference",
       inputs: { valueA: 100, valueB: 120 },
@@ -381,32 +395,36 @@ export const percentageCalculatorDefinition: CalculatorDefinition = {
   ],
   faqs: [
     {
-      question: "How do I calculate a percentage?",
-      answer: "To calculate a percentage of a number, divide the percentage rate by 100 to convert it into a decimal fraction, then multiply that decimal by the total number. For example, to find 20% of 150: (20 ÷ 100) × 150 = 0.20 × 150 = 30.",
+      question: "How do I calculate percentage in a calculator?",
+      answer: "To calculate percentage on a calculator, enter the number, multiply it by the percentage rate, and divide by 100. For example, to find 15% of 850, enter 850 × 15 ÷ 100 to get 127.5. In this calculator, simply enter your percentage and number in the 'What is X% of Y?' mode for instant step-by-step calculations.",
     },
     {
-      question: "How do I calculate percentage increase?",
-      answer: "To calculate percentage increase: subtract the starting value (A) from the final value (B), divide the resulting increase by the starting value (A), and multiply by 100. Formula: ((B − A) ÷ A) × 100.",
+      question: "How do I calculate a percentage of a number?",
+      answer: "Convert the percentage rate into a decimal fraction by dividing by 100, then multiply by the total number: Result = (X ÷ 100) × Y. For example, to find 20% of 150: (20 ÷ 100) × 150 = 0.20 × 150 = 30.",
     },
     {
-      question: "How do I calculate percentage decrease?",
-      answer: "To calculate percentage decrease: subtract the final value (B) from the initial starting value (A), divide the reduction by the starting value (A), and multiply by 100. Formula: ((A − B) ÷ A) × 100.",
+      question: "How do I find what percentage one number is of another?",
+      answer: "Divide the part (X) by the whole (Y) and multiply by 100: Percentage = (X ÷ Y) × 100. For example, to find what percentage 20 is of 80: (20 ÷ 80) × 100 = 0.25 × 100 = 25%.",
     },
     {
-      question: "What is percentage difference?",
-      answer: "Percentage difference compares the relative difference between two numbers when neither number serves as an initial or reference value. It divides the absolute difference by the average of the two numbers and multiplies by 100. Formula: (|A − B| ÷ ((A + B) ÷ 2)) × 100.",
+      question: "How do I calculate percentage of marks?",
+      answer: "To calculate your exam marks percentage, divide the total marks obtained by the maximum possible marks and multiply by 100: Percentage (%) = (Marks Obtained ÷ Total Maximum Marks) × 100. For example, scoring 460 marks out of 500 total gives: (460 ÷ 500) × 100 = 92%.",
+    },
+    {
+      question: "How do I calculate percentage increase or decrease?",
+      answer: "For percentage increase: ((New Value − Original Value) ÷ Original Value) × 100. For percentage decrease: ((Original Value − New Value) ÷ Original Value) × 100. For example, growing from 100 to 125 is a 25% increase, while dropping from 200 to 150 is a 25% decrease.",
+    },
+    {
+      question: "How do I calculate attendance percentage?",
+      answer: "Divide the number of classes attended by the total number of classes conducted and multiply by 100: Attendance (%) = (Classes Attended ÷ Total Classes) × 100. For example, attending 36 out of 40 classes gives (36 ÷ 40) × 100 = 90% attendance.",
     },
     {
       question: "What is the difference between percentage change and percentage difference?",
-      answer: "Percentage change (increase/decrease) requires a chronological or reference starting point and divides by that original value. In contrast, percentage difference has no starting baseline and divides by the arithmetic mean of both numbers.",
-    },
-    {
-      question: "How do I calculate X percent of a number?",
-      answer: "Multiply the number by X, then divide by 100. For instance, to compute 15% of 850: 15 × 850 = 12,750, then 12,750 ÷ 100 = 127.5.",
+      answer: "Percentage change (increase or decrease) measures growth or decline relative to a specific initial baseline. Percentage difference compares two independent numbers without a starting baseline by dividing their absolute difference by their arithmetic average.",
     },
     {
       question: "Can I calculate percentages with decimal numbers?",
-      answer: "Yes. All formulas support standard floating-point and decimal values (e.g., 7.5% of 250.50). The calculation engine processes high-precision decimals deterministically and formats outputs cleanly without rounding errors.",
+      answer: "Yes. All modes support standard decimal numbers and fractional percentages (such as 7.5% of 250.50). Calculations are processed with high floating-point precision and formatted cleanly without rounding artifacts.",
     },
   ],
   relatedCalculators: [

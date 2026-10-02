@@ -208,24 +208,32 @@ export const cgpaCalculatorDefinition: CalculatorDefinition = {
   ],
   faqs: [
     {
-      question: "What is the difference between SGPA and CGPA?",
-      answer: "SGPA (Semester Grade Point Average) measures academic performance in a single specific semester. CGPA (Cumulative Grade Point Average) represents the cumulative performance across all completed semesters, weighted by the credits earned in each semester.",
+      question: "What is a CGPA calculator?",
+      answer: "A CGPA calculator is an academic tool that computes your Cumulative Grade Point Average based on individual course grade points or multi-semester SGPA scores weighted by course credits on a standard 10-point grading scale.",
     },
     {
-      question: "How is CGPA calculated from individual subjects?",
-      answer: "CGPA is calculated by multiplying each subject's grade point by its course credits, adding those products together, and dividing that sum by the total credits registered. Formula: CGPA = Σ(Grade × Credits) ÷ Total Credits.",
+      question: "How do I calculate CGPA using a calculator?",
+      answer: "To calculate CGPA, enter each subject's numeric grade point (from 0 to 10) along with its assigned credit hours, or enter each completed semester's SGPA and semester credit load. The calculator multiplies each grade by its credit weight, sums all weighted scores, and divides by the total credits.",
+    },
+    {
+      question: "How is SGPA converted to CGPA?",
+      answer: "SGPA is aggregated into CGPA by calculating a credit-weighted average across all completed semesters: Multiply each semester's SGPA by that semester's total credits, sum the products, and divide by the cumulative credit total across all semesters.",
+    },
+    {
+      question: "How do credits affect CGPA?",
+      answer: "Credits represent the relative academic weight of each course. A 4-credit course has double the influence on your final CGPA compared to a 2-credit course, meaning earning a high grade point in high-credit subjects will lift your cumulative average much more effectively.",
+    },
+    {
+      question: "What is the multiplying factor in a CGPA calculation?",
+      answer: "A multiplying factor is used when converting a 10-point CGPA into an equivalent percentage. For instance, the standard CBSE and AICTE benchmark uses a multiplier of 9.5 (Percentage = CGPA × 9.5), whereas some universities use 10× or specific formulas. Check your university's official grading guidelines for their prescribed multiplier.",
     },
     {
       question: "Can I simply average my semester SGPAs to find CGPA?",
-      answer: "You can only take the direct arithmetic average of SGPAs if every semester has the exact same number of credits. If semesters have different credit loads (e.g. 20 credits in Sem 1 and 24 credits in Sem 2), you must use credit-weighted aggregation.",
+      answer: "You can only take the simple arithmetic mean of your semester SGPAs if every semester has the exact same credit weight. When semester credit loads differ (e.g., 20 credits in Sem 1 and 24 in Sem 2), you must compute a credit-weighted average to ensure accuracy.",
     },
     {
-      question: "How do I convert CGPA to percentage?",
-      answer: "In Indian education boards and universities, conversion methods vary. Under the standard CBSE/AICTE convention, Percentage = CGPA × 9.5. Some universities employ direct 10× scales (Percentage = CGPA × 10) or specific institutional formulas. Always check your university transcript guidelines.",
-    },
-    {
-      question: "What is a good CGPA on a 10-point scale?",
-      answer: "Generally, a CGPA of 8.0 or above (out of 10.0) is considered First Class with Distinction / Honors at most Indian universities and engineering institutes, while 6.5 to 7.9 is typically First Class.",
+      question: "What is the difference between SGPA and CGPA?",
+      answer: "SGPA (Semester Grade Point Average) evaluates your academic performance in a single specific semester, while CGPA (Cumulative Grade Point Average) measures your overall cumulative standing across all completed semesters to date.",
     },
   ],
   relatedCalculators: [
@@ -251,10 +259,10 @@ export const cgpaCalculatorDefinition: CalculatorDefinition = {
       isAvailable: true,
     },
     {
-      id: "emi-calculator",
-      name: "EMI Calculator",
-      category: "Finance",
-      slug: "/emi-calculator",
+      id: "average-calculator",
+      name: "Average Calculator",
+      category: "Math",
+      slug: "/average-calculator",
       isAvailable: true,
     },
   ],

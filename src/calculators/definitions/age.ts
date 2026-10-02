@@ -184,23 +184,42 @@ export const ageCalculatorDefinition: CalculatorDefinition = {
   ],
   faqs: [
     {
+      question: "How do I calculate my age from my date of birth?",
+      answer: "Enter your date of birth in the Date of Birth field and keep or adjust the reference date. The calculator uses calendar-aware arithmetic to determine your exact chronological age in completed years, months, and days.",
+    },
+    {
+      question: "How old am I today?",
+      answer: "Your current age is the exact elapsed time between your birth date and today's date. The calculator defaults the reference date to today so you can view your exact age in years, months, days, total weeks, and total days lived instantly.",
+    },
+    {
+      question: "How does an age calculator calculate years, months and days?",
+      answer: "The calculator performs component-wise calendar subtraction between the reference date and birth date. When the reference day is smaller than the birth day, it borrows the exact number of days in the preceding calendar month; if the reference month is smaller, it borrows 12 months from the reference year.",
+    },
+    {
+      question: "How many days old am I?",
+      answer: "Your age in total days is computed by counting the absolute number of calendar days between your birth date and the reference date. You can view this figure directly in the secondary results summary under 'Total Days Lived'.",
+    },
+    {
+      question: "How does an age calculator calculate the next birthday?",
+      answer: "The calculator determines the date of your upcoming birthday in the current or next calendar year, calculates the remaining days countdown, and displays the exact day of the week on which your next birthday falls.",
+    },
+    {
       question: "How does this calculator handle February 29 (leap day) birthdays in non-leap years?",
-      answer: "In common (non-leap) years containing only 28 days in February, a person born on February 29 officially turns a year older on March 1 after the 365th day elapses. In leap years, their birthday occurs on February 29.",
-    },
-    {
-      question: "Why is calendar date arithmetic different from simple year subtraction?",
-      answer: "Simple year subtraction (e.g. 2024 − 1999 = 25) ignores whether your birthday has occurred yet in the current year. If your birthday is in November and the reference date is July, you have not yet turned 25 and are still 24 years and 8 months old.",
-    },
-    {
-      question: "How does day borrowing work when subtracting dates?",
-      answer: "When the reference day is smaller than your birth day (for instance, the 14th vs the 20th), one month is borrowed from the reference date. The calculator adds the exact number of days from the preceding calendar month (e.g., 30 for April, 31 for July, 28/29 for February).",
+      answer: "In common non-leap years (which have 28 days in February), a person born on February 29 completes a full year of life on March 1 after the 365th day elapses. In leap years, their birthday occurs on February 29.",
     },
     {
       question: "Can I calculate my age on a historical date or future date?",
-      answer: "Yes. You can edit the 'Calculate age as of' reference field to any past, present, or future calendar date as long as the reference date is on or after your date of birth.",
+      answer: "Yes. You can customize the 'Calculate age as of' reference field to any past, present, or future calendar date on or after your date of birth to check your exact age at that point in time.",
     },
   ],
   relatedCalculators: [
+    {
+      id: "bmi-calculator",
+      name: "BMI Calculator",
+      category: "Health",
+      slug: "/bmi-calculator",
+      isAvailable: true,
+    },
     {
       id: "percentage-calculator",
       name: "Percentage Calculator",
@@ -209,17 +228,10 @@ export const ageCalculatorDefinition: CalculatorDefinition = {
       isAvailable: true,
     },
     {
-      id: "cgpa-calculator",
-      name: "CGPA Calculator",
-      category: "Education & Exams",
-      slug: "/cgpa-calculator",
-      isAvailable: true,
-    },
-    {
-      id: "gpa-calculator",
-      name: "GPA Calculator",
-      category: "Education & Exams",
-      slug: "/gpa-calculator",
+      id: "average-calculator",
+      name: "Average Calculator",
+      category: "Math",
+      slug: "/average-calculator",
       isAvailable: true,
     },
   ],

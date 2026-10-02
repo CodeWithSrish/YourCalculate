@@ -193,21 +193,28 @@ export const emiCalculatorDefinition: CalculatorDefinition = {
   examples: [
     {
       title: "Example 1: ₹50 Lakh Home Loan (8.5% for 20 Years)",
-      description: "Standard long-term home mortgage with monthly compounding.",
+      description: "Standard long-term home mortgage with monthly reducing balance calculation.",
       modeId: "standard-emi",
       inputs: { principal: 5000000, annualRate: 8.5, tenureYears: 20 },
       expectedOutput: "₹43,391.16 / month",
     },
     {
-      title: "Example 2: ₹10 Lakh Car Loan (10% for 5 Years)",
-      description: "Medium-term vehicle financing with fixed installments.",
+      title: "Example 2: ₹8 Lakh Vehicle Loan (9% for 5 Years)",
+      description: "Medium-term car or auto loan financing with fixed monthly installments.",
+      modeId: "standard-emi",
+      inputs: { principal: 800000, annualRate: 9, tenureYears: 5 },
+      expectedOutput: "₹16,606.59 / month",
+    },
+    {
+      title: "Example 3: ₹10 Lakh Personal Loan (10% for 5 Years)",
+      description: "Standard personal loan financing with equal monthly installments.",
       modeId: "standard-emi",
       inputs: { principal: 1000000, annualRate: 10, tenureYears: 5 },
       expectedOutput: "₹21,247.04 / month",
     },
     {
-      title: "Example 3: ₹5 Lakh 0% Interest Loan (5 Years)",
-      description: "Zero-cost promotional financing with equal monthly distributions.",
+      title: "Example 4: ₹5 Lakh 0% Interest Loan (5 Years)",
+      description: "Zero-cost promotional financing with equal monthly principal distribution.",
       modeId: "standard-emi",
       inputs: { principal: 500000, annualRate: 0, tenureYears: 5 },
       expectedOutput: "₹8,333.33 / month",
@@ -215,16 +222,24 @@ export const emiCalculatorDefinition: CalculatorDefinition = {
   ],
   faqs: [
     {
-      question: "What is EMI?",
-      answer: "Equated Monthly Installment (EMI) is a fixed payment amount made by a borrower to a lender at a specified date each calendar month. Each EMI consists of both principal repayment and interest charges.",
+      question: "How do I calculate EMI using a calculator?",
+      answer: "To calculate EMI on this calculator, enter the principal loan amount, the annual interest rate percentage, and the loan tenure in years. The calculator immediately computes your monthly payment, total interest payable, total repayment amount, and a month-by-month amortization schedule.",
+    },
+    {
+      question: "What is an EMI calculator?",
+      answer: "An EMI calculator is a financial tool that computes the Equated Monthly Installment (EMI) required to repay a loan over a specified period, breaking down each payment into principal repayment and interest charges.",
     },
     {
       question: "How is EMI calculated?",
-      answer: "EMI is calculated using a reducing-balance formula: EMI = [P × r × (1+r)^n] ÷ [(1+r)^n − 1], where P is principal, r is monthly interest rate, and n is the total tenure in months.",
+      answer: "EMI is calculated using the reducing-balance amortization formula: EMI = [P × r × (1+r)^n] ÷ [(1+r)^n − 1], where P is the principal loan amount, r is the monthly interest rate (Annual Rate ÷ 1200), and n is the total number of monthly installments (Tenure in Years × 12).",
     },
     {
-      question: "What is the EMI formula?",
-      answer: "The mathematical formula is EMI = (P × r × (1+r)^n) / ((1+r)^n − 1). When the interest rate is 0%, the formula simplifies to EMI = P / n.",
+      question: "What factors affect EMI?",
+      answer: "EMI depends on three primary variables: the principal loan amount (higher principal raises EMI), the annual interest rate (higher rates increase monthly interest charges), and the loan tenure (longer tenure lowers monthly EMI but increases total interest paid over time).",
+    },
+    {
+      question: "What is the difference between reducing-balance and flat-interest EMI?",
+      answer: "In a reducing-balance method (used by this calculator and standard institutional loans), interest is calculated each month only on the remaining outstanding principal, meaning the interest component decreases over time as the principal is repaid. In a flat-interest method, interest is calculated on the entire original principal for the full loan tenure. Consequently, two loans with the same nominal interest rate can result in significantly different monthly EMI and total interest amounts depending on whether reducing-balance or flat-interest calculation is applied.",
     },
     {
       question: "How is monthly interest calculated from an annual interest rate?",
@@ -235,28 +250,16 @@ export const emiCalculatorDefinition: CalculatorDefinition = {
       answer: "At 0% interest, no interest charges accrue. The total principal is simply divided equally across the number of monthly payments: EMI = Principal ÷ Months.",
     },
     {
-      question: "How does loan tenure affect EMI?",
-      answer: "A longer tenure reduces your monthly EMI amount but increases the cumulative interest paid over the life of the loan. A shorter tenure increases monthly EMI but significantly reduces total interest expense.",
-    },
-    {
-      question: "What is the difference between EMI and total interest?",
-      answer: "EMI is the recurring monthly payment that covers both principal recovery and interest for that month. Total interest is the cumulative cost of borrowing paid on top of the original principal over the entire loan term.",
-    },
-    {
-      question: "Does a longer loan tenure reduce EMI?",
-      answer: "Yes, spreading the repayment across more months lowers each individual installment, though you pay substantially more interest overall.",
-    },
-    {
       question: "How is total interest calculated?",
       answer: "Total Interest is calculated by multiplying the monthly EMI by the total number of installments and subtracting the original principal: Total Interest = (EMI × n) − Principal.",
     },
   ],
   relatedCalculators: [
     {
-      id: "percentage-calculator",
-      name: "Percentage Calculator",
-      category: "Math",
-      slug: "/percentage-calculator",
+      id: "loan-calculator",
+      name: "Loan Calculator",
+      category: "Finance",
+      slug: "/loan-calculator",
       isAvailable: true,
     },
     {
@@ -267,17 +270,17 @@ export const emiCalculatorDefinition: CalculatorDefinition = {
       isAvailable: true,
     },
     {
-      id: "cgpa-calculator",
-      name: "CGPA Calculator",
-      category: "Education & Exams",
-      slug: "/cgpa-calculator",
+      id: "compound-interest-calculator",
+      name: "Compound Interest Calculator",
+      category: "Finance",
+      slug: "/compound-interest-calculator",
       isAvailable: true,
     },
     {
-      id: "percentage-to-cgpa-calculator",
-      name: "Percentage to CGPA Calculator",
-      category: "Education & Exams",
-      slug: "/percentage-to-cgpa-calculator",
+      id: "simple-interest-calculator",
+      name: "Simple Interest Calculator",
+      category: "Finance",
+      slug: "/simple-interest-calculator",
       isAvailable: true,
     },
   ],

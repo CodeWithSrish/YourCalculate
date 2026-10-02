@@ -444,43 +444,39 @@ export const percentageToCgpaCalculatorDefinition: CalculatorDefinition = {
   faqs: [
     {
       question: "How do I convert percentage to CGPA?",
-      answer: "Under the standard CBSE / 9.5 method, divide your percentage score by 9.5. For example, 85% ÷ 9.5 = 8.95 CGPA. Under a direct 10× method, divide by 10 (85% ÷ 10 = 8.5 CGPA). If your institution specifies a custom multiplier M, divide by M.",
+      answer: "Under the standard CBSE / 9.5 method, divide your aggregate percentage marks by 9.5 (CGPA = Percentage ÷ 9.5). For example, 85% ÷ 9.5 = 8.95 CGPA. Under a direct 10× scale, divide by 10 (85% ÷ 10 = 8.50 CGPA). If your institution mandates a custom multiplier M, divide by that factor.",
     },
     {
       question: "How do I convert CGPA to percentage?",
-      answer: "Under the standard CBSE / 9.5 method, multiply your 10-point CGPA by 9.5. For example, 8.7 CGPA × 9.5 = 82.65%, and 8.5 CGPA × 9.5 = 80.75%. Under a direct 10× method, multiply by 10 (8.5 × 10 = 85.0%).",
+      answer: "Under the standard CBSE / 9.5 method, multiply your 10-point CGPA by 9.5 (Percentage = CGPA × 9.5). For example, 8.7 CGPA × 9.5 = 82.65%, and 8.5 CGPA × 9.5 = 80.75%. Under a direct 10× scale, multiply by 10 (8.5 × 10 = 85.0%).",
     },
     {
-      question: "What is 85 percentage in CGPA?",
-      answer: "Using the CBSE / 9.5 method, 85% equals 85 ÷ 9.5 = 8.95 CGPA on a standard 10-point scale. Under the direct 10× method, 85% equals 8.50 CGPA.",
+      question: "How does the 9.5 CGPA-to-percentage method work?",
+      answer: "If your school, board, or academic authority instructs you to use the 9.5 method (such as CBSE or AICTE guidelines), you can apply the supported formulas: Percentage = CGPA × 9.5 and CGPA = Percentage ÷ 9.5. This conversion is derived from historical mark distributions on a 10-point scale, but it is not universally mandated across all institutions. Always confirm with your official transcript instructions before submitting official forms.",
     },
     {
-      question: "What is 8.7 CGPA in percentage?",
-      answer: "Using the CBSE / 9.5 method, 8.7 CGPA equals 8.7 × 9.5 = 82.65%. Under the direct 10× method, 8.7 CGPA equals 87.00%.",
-    },
-    {
-      question: "What is 8.5 CGPA in percentage?",
-      answer: "Using the CBSE / 9.5 method, 8.5 CGPA equals 8.5 × 9.5 = 80.75%. Under the direct 10× method, 8.5 CGPA equals 85.00%.",
+      question: "How do I convert SGPA to percentage?",
+      answer: "SGPA-to-percentage conversion depends on the grading rules used by your institution. If your institution specifies a direct multiplier or another formula, use that prescribed method. YourCalculate can perform the mathematical conversion when you provide the applicable multiplier via the Custom Conversion mode.",
     },
     {
       question: "Is the 9.5 multiplier universally used by all Indian universities?",
-      answer: "No. CGPA-to-percentage conversion is not governed by one universal formula across all Indian institutions. While the 9.5 multiplier is standard for CBSE, Kendriya Vidyalayas, and many AICTE-affiliated engineering colleges, several state universities use direct 10× scales (CGPA × 10) or custom formulas. Always check your university transcript or official conversion ordinance.",
+      answer: "No. Grade conversion policies vary across Indian boards and universities. While CBSE, Kendriya Vidyalayas, and many engineering colleges follow 9.5, other autonomous universities employ direct 10× scales or specific polynomial formulas. Always verify the authorized formula with your university registrar.",
     },
     {
-      question: "What is the difference between this converter and the full CGPA Calculator?",
-      answer: "This standalone converter is built for quick, direct conversion between aggregate percentage and CGPA without requiring subject-by-subject entries. If you need to calculate your semester SGPA or cumulative CGPA from individual subject grades, credit points, or semester marks, use the full CGPA Calculator (/cgpa-calculator).",
+      question: "What is 85 percentage in CGPA?",
+      answer: "Using the standard 9.5 multiplier, 85% equals 85 ÷ 9.5 = 8.95 CGPA on a standard 10-point scale. Under the direct 10× method, 85% equals 8.50 CGPA.",
+    },
+    {
+      question: "What is 8.5 CGPA in percentage?",
+      answer: "Using the 9.5 multiplier, 8.5 CGPA equals 8.5 × 9.5 = 80.75%. Under the direct 10× method, 8.5 CGPA equals 85.00%.",
     },
     {
       question: "Can I use a custom multiplier for my university?",
-      answer: "Yes. You can select 'Custom multiplier' directly from the conversion method dropdown or switch to the 'Custom Conversion' tab to input your institution's specific multiplier M (such as 10.0, 9.25, or 8.9).",
+      answer: "Yes. Select 'Custom multiplier' from the conversion method dropdown or navigate to the 'Custom Conversion' tab to input your institution's certified multiplier M (such as 10.0, 9.25, or 8.9).",
     },
     {
-      question: "What is 80% in CGPA?",
-      answer: "Using the CBSE / 9.5 method, 80% equals 80 ÷ 9.5 = 8.42 CGPA on a standard 10-point scale.",
-    },
-    {
-      question: "What is 90% in CGPA?",
-      answer: "Using the CBSE / 9.5 method, 90% equals 90 ÷ 9.5 = 9.47 CGPA on a standard 10-point scale.",
+      question: "What is the difference between this converter and the full CGPA Calculator?",
+      answer: "This standalone converter performs direct mathematical conversions between aggregate percentage marks and CGPA scores. If you need to calculate your semester SGPA or cumulative CGPA from individual course grades and credit hours, use the full CGPA Calculator (/cgpa-calculator).",
     },
   ],
   relatedCalculators: [
@@ -506,10 +502,10 @@ export const percentageToCgpaCalculatorDefinition: CalculatorDefinition = {
       isAvailable: true,
     },
     {
-      id: "emi-calculator",
-      name: "EMI Calculator",
-      category: "Finance",
-      slug: "/emi-calculator",
+      id: "average-calculator",
+      name: "Average Calculator",
+      category: "Math",
+      slug: "/average-calculator",
       isAvailable: true,
     },
   ],

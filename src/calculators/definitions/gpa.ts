@@ -283,12 +283,24 @@ export const gpaCalculatorDefinition: CalculatorDefinition = {
   ],
   faqs: [
     {
-      question: "What is GPA and how is it calculated?",
-      answer: "Grade Point Average (GPA) is a standardized measure of academic achievement used in higher education and secondary schools. It is calculated by converting letter grades into numeric grade points, multiplying each grade point by the course credit hours to obtain Quality Points, and dividing the total quality points by total credit hours.",
+      question: "How do I calculate GPA using a GPA calculator?",
+      answer: "To calculate GPA, select your calculation mode (Semester GPA, Cumulative GPA, or Simple Grade List). Enter your quality points and credit hours, or prior cumulative record, and the calculator computes your exact GPA, weighted points, and credit totals.",
     },
     {
-      question: "What is the difference between GPA and Indian CGPA?",
-      answer: "GPA is typically computed on a 4.0 (or 5.0) scale using credit hours and quality points, and is standard in North American and international universities. Indian CGPA (Cumulative Grade Point Average) is an academic metric operating on a 10-point scale governed by UGC/AICTE credit framework. They are distinct systems with different grading curves and credit weights.",
+      question: "How do I calculate semester GPA?",
+      answer: "Multiply each course's numeric grade point by its credit hours to find Quality Points (Quality Points = Grade Point × Credits), sum all quality points for the semester, and divide by the total semester credit hours: Semester GPA = Total Quality Points ÷ Total Credit Hours.",
+    },
+    {
+      question: "How do I calculate cumulative GPA?",
+      answer: "To calculate cumulative GPA, combine your prior academic record with current semester coursework using credit-weighting: Cumulative GPA = [(Prior GPA × Prior Credits) + (Current GPA × Current Credits)] ÷ Total Credits.",
+    },
+    {
+      question: "How do I calculate GPA with my current GPA?",
+      answer: "Use the 'Cumulative GPA' tab to enter your existing prior cumulative GPA and prior completed credit hours alongside your current semester GPA and credits. The calculator calculates your updated cumulative standing and displays the change (delta).",
+    },
+    {
+      question: "What is the difference between weighted and unweighted GPA?",
+      answer: "Unweighted GPA calculates all courses on the same scale (usually 4.0 maximum), regardless of course difficulty. Weighted GPA awards extra points (such as +0.5 for Honors or +1.0 for AP/IB courses) to reflect academic rigor.",
     },
     {
       question: "How do Pass / Fail (P/NP or S/U) courses affect GPA?",
@@ -299,28 +311,8 @@ export const gpaCalculatorDefinition: CalculatorDefinition = {
       answer: "On a standard 4.0 scale: 3.7 to 4.0 is generally considered Magna/Summa Cum Laude distinction (A/A-), 3.5 to 3.7 is Honors (Dean's List), 3.0 to 3.4 is good standing (B average), and 2.0 is usually the minimum threshold required for undergraduate graduation.",
     },
     {
-      question: "How does Cumulative GPA differ from Semester GPA?",
-      answer: "Semester GPA represents your academic performance during a single academic term (e.g. Fall semester). Cumulative GPA represents your aggregate performance across all semesters and credit hours completed throughout your degree program.",
-    },
-    {
-      question: "What is the difference between Weighted and Unweighted GPA?",
-      answer: "Unweighted GPA calculates all courses on the same scale (usually 4.0 max), regardless of difficulty. Weighted GPA awards extra point boost (such as +0.5 for Honors courses, +1.0 for AP or IB courses) to reflect academic rigor, allowing GPAs above 4.0.",
-    },
-    {
-      question: "How do decimal credit hours (e.g. 1.5 or 0.5) work?",
-      answer: "Courses with non-integer credits (like 1.5-credit lab sessions or 0.5-credit workshops) are factored proportionally into the quality points formula: Grade Point × 1.5 credits = Quality Points.",
-    },
-    {
-      question: "Can I convert Percentage to GPA directly?",
-      answer: "Direct percentage-to-GPA conversion requires referencing the official grading rubric of your institution or a credential evaluation service (such as WES). To calculate Indian 10-point CGPA from percentage, use our standalone Percentage to CGPA Converter (/percentage-to-cgpa-calculator).",
-    },
-    {
-      question: "Is the 4.0 scale universal across all international universities?",
-      answer: "No. While the 4.0 scale with plus/minus subdivisions is the most widely adopted standard in the US, Canada, and many international institutions, some universities use 4.33 scales, 5.0 scales, 7.0 scales, or British honours classification systems (First Class, 2:1, 2:2).",
-    },
-    {
-      question: "How do I calculate GPA if all my courses have equal credits?",
-      answer: "If all courses have the same credit value (e.g., 3 credits each), you can use the Simple Grade List tab to take the arithmetic mean of your numeric grade points by adding them together and dividing by the number of courses.",
+      question: "What is the difference between GPA and Indian CGPA?",
+      answer: "GPA is typically computed on a 4.0 (or 5.0) scale using credit hours and quality points, and is standard in North American and international universities. Indian CGPA (Cumulative Grade Point Average) is an academic metric operating on a 10-point scale governed by UGC/AICTE credit framework. They are distinct systems with different grading curves and credit weights.",
     },
   ],
   relatedCalculators: [
@@ -346,10 +338,10 @@ export const gpaCalculatorDefinition: CalculatorDefinition = {
       isAvailable: true,
     },
     {
-      id: "emi-calculator",
-      name: "EMI Calculator",
-      category: "Finance",
-      slug: "/emi-calculator",
+      id: "average-calculator",
+      name: "Average Calculator",
+      category: "Math",
+      slug: "/average-calculator",
       isAvailable: true,
     },
   ],

@@ -202,7 +202,7 @@ const ex2 = calculateSimpleInterest(50000, 7.5, 3);
 assert.strictEqual(ex2.formattedSimpleInterest, simpleInterestCalculatorDefinition.examples[1].expectedOutput);
 const ex3 = calculateSimpleInterest(100000, 8, 2.5);
 assert.strictEqual(ex3.formattedSimpleInterest, simpleInterestCalculatorDefinition.examples[2].expectedOutput);
-const ex4 = calculateSimpleInterest(25000, 0, 5);
+const ex4 = calculateSimpleInterest(50000, 9, 0.5);
 assert.strictEqual(ex4.formattedSimpleInterest, simpleInterestCalculatorDefinition.examples[3].expectedOutput);
 console.log("✓ Test 22: All 4 worked examples strictly match engine outputs");
 

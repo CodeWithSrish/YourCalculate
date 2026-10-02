@@ -212,25 +212,41 @@ export const sipCalculatorDefinition: CalculatorDefinition = {
       expectedOutput: "₹3,90,411.91 Future Value",
     },
     {
-      title: "Example 3: ₹5,000/Month at 0% Return for 5 Years",
+      title: "Example 3: ₹5,00,000 Milestone at 0% Return for 5 Years",
       description: "Capital preservation baseline without compounding interest.",
       modeId: "standard-sip",
       inputs: { monthlyInvestment: 5000, annualRate: 0, durationYears: 5 },
       expectedOutput: "₹3,00,000.00 Future Value",
     },
+    {
+      title: "Example 4: Long-Term Mutual Fund SIP (₹5,000/Month @ 12% for 15 Years)",
+      description:
+        "Illustrative wealth accumulation scenario over a 15-year horizon with beginning-of-month contributions at an assumed 12% annual return. Not an investment guarantee or financial advice.",
+      modeId: "standard-sip",
+      inputs: { monthlyInvestment: 5000, annualRate: 12, durationYears: 15 },
+      expectedOutput: "₹25,22,880.00 Future Value",
+    },
   ],
   faqs: [
     {
-      question: "What is a SIP?",
-      answer: "A Systematic Investment Plan (SIP) is an investment vehicle offered by mutual funds allowing investors to invest a fixed amount regularly (typically monthly) into a chosen scheme, fostering financial discipline and rupee cost averaging.",
+      question: "What is a SIP calculator?",
+      answer: "A SIP calculator is a financial tool that estimates the future maturity value, total amount invested, and compounded wealth gain for systematic monthly mutual fund investments based on an assumed annual rate of return.",
     },
     {
-      question: "How is SIP future value calculated?",
-      answer: "SIP future value is calculated using the compound interest annuity due formula: FV = P × [((1 + r)^n − 1) ÷ r] × (1 + r), where P is monthly investment, r is the monthly rate of return, and n is the total number of monthly installments. Monthly SIP contributions are assumed to be made at the beginning of each month.",
+      question: "How does a SIP calculator work?",
+      answer: "A SIP calculator works by applying the monthly annuity compound interest formula. It calculates the compound growth of each monthly installment over its respective investment duration, accumulating both total principal contributions and compounded wealth gains.",
     },
     {
-      question: "What is the difference between total invested and estimated returns?",
-      answer: "Total invested is the actual cumulative capital contributed from your pocket (Monthly Investment × Months). Estimated returns represent the compounded wealth gain generated on top of your invested capital over the investment horizon.",
+      question: "How is SIP return calculated?",
+      answer: "SIP returns are calculated using the compound interest annuity due formula: FV = P × [((1 + r)^n − 1) ÷ r] × (1 + r), where P is the fixed monthly deposit, r is the monthly rate of return (Annual Rate ÷ 1200), and n is the total number of monthly payments (Years × 12).",
+    },
+    {
+      question: "What formula does a SIP calculator use?",
+      answer: "The calculator uses the standard future value formula for an annuity due: FV = P × [((1 + r)^n − 1) ÷ r] × (1 + r), assuming contributions occur at the start of each monthly compounding period.",
+    },
+    {
+      question: "How do I use a SIP calculator?",
+      answer: "Enter your monthly investment amount (e.g. ₹5,000), your expected annual rate of return (e.g. 12%), and your investment duration in years. The calculator immediately displays your total invested capital, estimated returns, total maturity value, and annual milestone breakdown.",
     },
     {
       question: "Does SIP guarantee returns?",
@@ -241,32 +257,16 @@ export const sipCalculatorDefinition: CalculatorDefinition = {
       answer: "At 0% annual return, no compounding or interest is earned. Your future value equals exactly the total amount invested across all monthly payments (P × n), with zero wealth gain.",
     },
     {
-      question: "Can I use a decimal investment amount?",
-      answer: "Yes. The calculator fully supports decimal values for monthly investment (e.g. ₹2,500.50), expected return rate (e.g. 11.5%), and duration (e.g. 3.5 years).",
-    },
-    {
-      question: "Can I change the SIP amount later?",
-      answer: "In real-world mutual funds, you can increase your SIP periodically through step-up SIP features or by starting additional SIPs. This calculator computes projections based on a steady fixed monthly installment.",
-    },
-    {
-      question: "How does investment duration affect compounding?",
-      answer: "Compounding growth is non-linear. The longer your money stays invested, the larger the proportion of your final corpus comes from compounded returns rather than direct contributions.",
-    },
-    {
       question: "Is SIP the same as a recurring deposit?",
       answer: "No. A Recurring Deposit (RD) offers a fixed, guaranteed interest rate backed by a bank. A mutual fund SIP invests in market instruments (equities or debt) where returns are market-linked rather than fixed.",
-    },
-    {
-      question: "What rate of return should I enter?",
-      answer: "Historical broad-market equity index returns have averaged 10%–14% annually over long horizons (7+ years), while debt or hybrid funds typically range between 6%–9%. You should enter a realistic return rate based on your asset allocation.",
     },
   ],
   relatedCalculators: [
     {
-      id: "percentage-calculator",
-      name: "Percentage Calculator",
-      category: "Math",
-      slug: "/percentage-calculator",
+      id: "compound-interest-calculator",
+      name: "Compound Interest Calculator",
+      category: "Finance",
+      slug: "/compound-interest-calculator",
       isAvailable: true,
     },
     {
@@ -277,17 +277,17 @@ export const sipCalculatorDefinition: CalculatorDefinition = {
       isAvailable: true,
     },
     {
-      id: "cgpa-calculator",
-      name: "CGPA Calculator",
-      category: "Education & Exams",
-      slug: "/cgpa-calculator",
+      id: "loan-calculator",
+      name: "Loan Calculator",
+      category: "Finance",
+      slug: "/loan-calculator",
       isAvailable: true,
     },
     {
-      id: "percentage-to-cgpa-calculator",
-      name: "Percentage to CGPA Calculator",
-      category: "Education & Exams",
-      slug: "/percentage-to-cgpa-calculator",
+      id: "percentage-calculator",
+      name: "Percentage Calculator",
+      category: "Math",
+      slug: "/percentage-calculator",
       isAvailable: true,
     },
   ],
