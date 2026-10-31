@@ -11,7 +11,7 @@ import { RelatedCalculators } from "@/components/calculator/RelatedCalculators";
 import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
-  title: "Ratio Calculator – Simplify Ratios & Solve Proportions | YourCalculate",
+  title: "Ratio Calculator – Simplify Ratios & Solve Proportions",
   description:
     "Free online ratio calculator to simplify ratios to lowest terms, solve missing proportion values (A : B = C : D), and split monetary amounts proportionally with step-by-step math.",
   alternates: {

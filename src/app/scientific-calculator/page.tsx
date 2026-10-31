@@ -11,7 +11,7 @@ import { RelatedCalculators } from "@/components/calculator/RelatedCalculators";
 import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
-  title: "Scientific Calculator — Free Online Advanced Math Instrument | YourCalculate",
+  title: "Scientific Calculator — Free Online Advanced Math Instrument",
   description:
     "Free online scientific calculator with trigonometry, logarithms, powers, roots, factorials, DEG/RAD modes, memory registers, Ans recall, and calculation history.",
   alternates: {

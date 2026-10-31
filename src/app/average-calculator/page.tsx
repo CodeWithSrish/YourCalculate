@@ -11,7 +11,7 @@ import { RelatedCalculators } from "@/components/calculator/RelatedCalculators";
 import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
-  title: "Average Calculator – Calculate Mean & Weighted Average | YourCalculate",
+  title: "Average Calculator – Calculate Mean & Weighted Average",
   description:
     "Free online average calculator to quickly calculate arithmetic mean, sum, and weighted averages for any list of numbers with step-by-step formulas.",
   alternates: {

@@ -4,7 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Contact YourCalculate | Calculator Feedback & Support",
+  title: "Contact Us — Calculator Feedback & Support",
   description:
     "Get in touch with the YourCalculate team for calculator feedback, error reporting, mathematical corrections, or feature suggestions.",
   alternates: {

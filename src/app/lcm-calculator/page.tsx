@@ -11,7 +11,7 @@ import { RelatedCalculators } from "@/components/calculator/RelatedCalculators";
 import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
-  title: "LCM & GCD Calculator — Least Common Multiple & Greatest Common Divisor | YourCalculate",
+  title: "LCM & GCD Calculator — Least Common Multiple & Greatest Common Divisor",
   description:
     "Free online LCM and GCD calculator. Find the Least Common Multiple (LCM) and Greatest Common Divisor (GCD / HCF) of two or more numbers with step-by-step solutions.",
   alternates: {

@@ -11,7 +11,7 @@ import { RelatedCalculators } from "@/components/calculator/RelatedCalculators";
 import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
-  title: "GST Calculator — Add or Remove GST, CGST, SGST & IGST | YourCalculate",
+  title: "GST Calculator — Add or Remove GST, CGST, SGST & IGST",
   description:
     "Calculate GST amounts, add or remove GST from prices, and split CGST, SGST, and IGST with instant step-by-step calculations.",
   alternates: {

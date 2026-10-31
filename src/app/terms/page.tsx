@@ -4,7 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | YourCalculate",
+  title: "Terms & Conditions",
   description:
     "Review the Terms and Conditions for using YourCalculate. Understand usage rights, informational disclaimers, and mathematical computation terms.",
   alternates: {

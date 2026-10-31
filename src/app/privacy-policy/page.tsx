@@ -4,7 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | YourCalculate",
+  title: "Privacy Policy",
   description:
     "Learn how YourCalculate handles user privacy, local client-side calculation processing, browser storage, and technical server logs.",
   alternates: {

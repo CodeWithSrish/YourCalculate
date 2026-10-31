@@ -11,7 +11,7 @@ import { RelatedCalculators } from "@/components/calculator/RelatedCalculators";
 import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
-  title: "EMI Calculator - Calculate Home Loan, Car Loan & Personal Loan EMI | YourCalculate",
+  title: "EMI Calculator - Calculate Home Loan, Car Loan & Personal Loan EMI",
   description:
     "Free EMI calculator to calculate your monthly loan installment, total interest payable, and amortization schedule for home, car, and personal loans.",
   alternates: {

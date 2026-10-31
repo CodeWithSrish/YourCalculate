@@ -12,7 +12,7 @@ import { RelatedCalculators } from "@/components/calculator/RelatedCalculators";
 import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
-  title: "CGPA Calculator - Calculate 10-Point CGPA & SGPA to CGPA | YourCalculate",
+  title: "CGPA Calculator - Calculate 10-Point CGPA & SGPA to CGPA",
   description:
     "Free CGPA calculator for Indian universities and colleges. Calculate cumulative GPA from subject grades and credits, or convert semester SGPA to CGPA accurately.",
   alternates: {

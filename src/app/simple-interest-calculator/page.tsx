@@ -12,7 +12,7 @@ import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
   title:
-    "Simple Interest Calculator – Calculate Interest & Total Amount | YourCalculate",
+    "Simple Interest Calculator – Calculate Interest & Total Amount",
   description:
     "Free online simple interest calculator to quickly calculate interest earned, total maturity amount, and growth rates on loans or deposits with transparent formulas.",
   alternates: {

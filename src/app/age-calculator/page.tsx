@@ -11,7 +11,7 @@ import { RelatedCalculators } from "@/components/calculator/RelatedCalculators";
 import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
-  title: "Age Calculator — Exact Age in Years, Months & Days | YourCalculate",
+  title: "Age Calculator — Exact Age in Years, Months & Days",
   description:
     "Calculate your exact chronological age in years, months, and days with calendar-aware arithmetic. Includes leap-year handling, total days lived, and next birthday countdown.",
   alternates: {

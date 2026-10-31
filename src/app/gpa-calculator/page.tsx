@@ -12,7 +12,7 @@ import { RelatedCalculators } from "@/components/calculator/RelatedCalculators";
 import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
-  title: "GPA Calculator - Calculate Course, Semester & Cumulative GPA | YourCalculate",
+  title: "GPA Calculator - Calculate Course, Semester & Cumulative GPA",
   description:
     "Free international GPA calculator with credit hours, cumulative GPA projection, weighted Honors/AP calculations, and standard 4.0 scale quality points.",
   alternates: {

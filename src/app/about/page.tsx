@@ -4,7 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "About YourCalculate | Free Online Calculators",
+  title: "About Us — Transparent & Deterministic Online Calculators",
   description:
     "Learn about YourCalculate's mission to provide fast, deterministic, formula-transparent online calculators across mathematics, finance, education, and health.",
   alternates: {

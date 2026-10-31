@@ -11,7 +11,7 @@ import { RelatedCalculators } from "@/components/calculator/RelatedCalculators";
 import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
-  title: "Discount Calculator — Calculate Sale Price & Savings | YourCalculate",
+  title: "Discount Calculator — Calculate Sale Price & Savings",
   description:
     "Calculate sale prices, discount percentages, savings, and original prices with step-by-step calculations.",
   alternates: {

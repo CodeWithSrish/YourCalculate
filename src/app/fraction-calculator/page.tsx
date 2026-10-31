@@ -11,7 +11,7 @@ import { RelatedCalculators } from "@/components/calculator/RelatedCalculators";
 import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
-  title: "Fraction Calculator — Add, Subtract, Multiply & Divide Fractions | YourCalculate",
+  title: "Fraction Calculator — Add, Subtract, Multiply & Divide Fractions",
   description:
     "Free online fraction calculator. Add, subtract, multiply, divide, and simplify fractions, or convert mixed numbers with step-by-step exact solutions.",
   alternates: {

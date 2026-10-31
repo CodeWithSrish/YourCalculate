@@ -11,7 +11,7 @@ import { RelatedCalculators } from "@/components/calculator/RelatedCalculators";
 import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
-  title: "Percentage Calculator - Calculate Percentages, Increase & Decrease | YourCalculate",
+  title: "Percentage Calculator - Calculate Percentages, Increase & Decrease",
   description:
     "Free percentage calculator to quickly calculate percent of numbers, proportion, percentage increase, decrease, and difference with step-by-step formulas.",
   alternates: {

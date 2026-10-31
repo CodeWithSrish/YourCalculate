@@ -12,7 +12,7 @@ import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
   title:
-    "Compound Interest Calculator — Calculate Future Value & Compounding Returns | YourCalculate",
+    "Compound Interest Calculator — Calculate Future Value & Compounding Returns",
   description:
     "Calculate compound interest, maturity amount, and total returns with annual, semi-annual, quarterly, monthly, and daily compounding.",
   alternates: {

@@ -11,7 +11,7 @@ import { RelatedCalculators } from "@/components/calculator/RelatedCalculators";
 import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
-  title: "SIP Calculator - Calculate SIP Returns & Future Value | YourCalculate",
+  title: "SIP Calculator - Calculate SIP Returns & Future Value",
   description:
     "Free SIP calculator to estimate future value, total investment, and potential returns from monthly SIP investments with step-by-step calculations.",
   alternates: {

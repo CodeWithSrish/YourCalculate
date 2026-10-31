@@ -48,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: `${baseUrl}/`,
+      url: `${baseUrl}`,
       lastModified: new Date("2026-09-26T00:00:00.000Z"),
       changeFrequency: "daily",
       priority: 1.0,

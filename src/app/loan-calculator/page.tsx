@@ -12,7 +12,7 @@ import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
   title:
-    "Loan Calculator — Calculate Monthly Payments, Borrowing Capacity & Payoff | YourCalculate",
+    "Loan Calculator — Calculate Monthly Payments, Borrowing Capacity & Payoff",
   description:
     "Free online loan calculator to compute monthly loan payments, calculate maximum borrowing capacity, and determine exact debt payoff timelines with full mathematical transparency.",
   alternates: {

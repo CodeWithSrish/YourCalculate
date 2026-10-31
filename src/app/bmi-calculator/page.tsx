@@ -11,7 +11,7 @@ import { RelatedCalculators } from "@/components/calculator/RelatedCalculators";
 import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
-  title: "BMI Calculator — Calculate Body Mass Index (Metric & US) | YourCalculate",
+  title: "BMI Calculator — Calculate Body Mass Index (Metric & US)",
   description:
     "Calculate your Body Mass Index (BMI) using metric or US customary units and view adult BMI categories and healthy weight range.",
   alternates: {

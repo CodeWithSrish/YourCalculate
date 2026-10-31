@@ -12,7 +12,7 @@ import { RelatedCalculators } from "@/components/calculator/RelatedCalculators";
 import { getCalculatorBySlug } from "@/calculators/registry";
 
 export const metadata: Metadata = {
-  title: "Percentage to CGPA Calculator - Convert Percentage ↔ CGPA | YourCalculate",
+  title: "Percentage to CGPA Calculator - Convert Percentage ↔ CGPA",
   description:
     "Convert percentage to CGPA and CGPA to percentage using CBSE 9.5, direct 10×, or custom university multipliers with step-by-step formula calculations.",
   alternates: {
