@@ -17,6 +17,9 @@ import { ratioCalculatorDefinition } from "./definitions/ratio";
 import { fractionCalculatorDefinition } from "./definitions/fraction";
 import { lcmCalculatorDefinition } from "./definitions/lcm";
 import { scientificCalculatorDefinition } from "./definitions/scientific";
+import { homeLoanPrepaymentVsSipCalculatorDefinition } from "./definitions/homeLoanPrepaymentVsSip";
+import { ctcToInHandSalaryCalculatorDefinition } from "./definitions/ctcToInHandSalary";
+import { earlyRetirementCalculatorDefinition } from "./definitions/earlyRetirement";
 
 const CALCULATOR_REGISTRY: Record<string, CalculatorDefinition> = {
   [percentageCalculatorDefinition.slug]: percentageCalculatorDefinition,
@@ -37,6 +40,9 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorDefinition> = {
   [fractionCalculatorDefinition.slug]: fractionCalculatorDefinition,
   [lcmCalculatorDefinition.slug]: lcmCalculatorDefinition,
   [scientificCalculatorDefinition.slug]: scientificCalculatorDefinition,
+  [homeLoanPrepaymentVsSipCalculatorDefinition.slug]: homeLoanPrepaymentVsSipCalculatorDefinition,
+  [ctcToInHandSalaryCalculatorDefinition.slug]: ctcToInHandSalaryCalculatorDefinition,
+  [earlyRetirementCalculatorDefinition.slug]: earlyRetirementCalculatorDefinition,
 };
 
 export function getCalculatorBySlug(slug: string): CalculatorDefinition | undefined {

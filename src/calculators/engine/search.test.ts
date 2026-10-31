@@ -88,11 +88,12 @@ assert.ok(test14.length >= 1);
 assert.strictEqual(test14[0].calculator.slug, "percentage-to-cgpa-calculator");
 console.log("✓ Test 14: 'percentage to cgpa' finds Percentage to CGPA Calculator");
 
-// Test 15: "home loan" finds EMI Calculator
+// Test 15: "home loan" finds Home Loan and EMI calculators
 const test15 = searchCalculators("home loan");
-assert.ok(test15.length >= 1);
-assert.strictEqual(test15[0].calculator.slug, "emi-calculator");
-console.log("✓ Test 15: 'home loan' finds EMI Calculator");
+assert.ok(test15.length >= 2);
+assert.ok(test15.some((r) => r.calculator.slug === "emi-calculator"));
+assert.ok(test15.some((r) => r.calculator.slug === "home-loan-prepayment-vs-sip-calculator"));
+console.log("✓ Test 15: 'home loan' finds EMI and Prepayment calculators");
 
 // Test 16: "discount" finds Discount Calculator first and includes Percentage Calculator
 const test16 = searchCalculators("discount");
@@ -274,5 +275,17 @@ const test45 = searchCalculators("solve proportion");
 assert.ok(test45.length >= 1);
 assert.strictEqual(test45[0].calculator.slug, "ratio-calculator");
 console.log("✓ Test 45: 'solve proportion' finds Ratio Calculator");
+
+// Test 46: "early retirement" finds Early Retirement Calculator
+const test46 = searchCalculators("early retirement");
+assert.ok(test46.length >= 1);
+assert.strictEqual(test46[0].calculator.slug, "early-retirement-calculator");
+console.log("✓ Test 46: 'early retirement' finds Early Retirement Calculator");
+
+// Test 47: "fire calculator" finds Early Retirement Calculator
+const test47 = searchCalculators("fire calculator");
+assert.ok(test47.length >= 1);
+assert.strictEqual(test47[0].calculator.slug, "early-retirement-calculator");
+console.log("✓ Test 47: 'fire calculator' finds Early Retirement Calculator");
 
 console.log("\nAll Calculator Search Engine tests passed successfully!");
